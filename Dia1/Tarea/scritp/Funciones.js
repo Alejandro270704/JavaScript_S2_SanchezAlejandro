@@ -17,13 +17,13 @@ function simuladorGasto() {
         let opcion = prompt("eliga una opción numerica :");
 
         if (opcion == 1) {
-            nuevoGasto(gastos1);
-        } else if (opcion == 2) {
-            lista_gasto(gastos1);
+            nuevoGasto(gastos1); // completado
+        } else if (opcion == 2) { 
+            lista_gasto(gastos1); //completado
         } else if (opcion == 3) {
             calcularGasto(gastos1);
         } else if (opcion == 4) {
-            generarReporte(gastos1);
+            generarReporte(gastos1); // completado
         } else if (opcion == 5) {
             boleano = false;
             console.log("ha salido del programa ");
@@ -185,5 +185,29 @@ function generarReporte(gastos1) {
 
     if (opc == 4) {
         console.log("menu principal");
+    }
+}
+//listar gastos
+function lista_gasto(gastos1){
+    console.log ("listar gasto por:")
+    console.log ("1.fecha")
+    console.log ("2.categoria")    
+    let opc= parseInt(prompt("eliga opcion numerica:"))
+    if (opc==1){
+        console.log("formato esperado : dd/mm/yyyy");
+        let fechabusqueda = prompt("digite la fecha exacta para calcular total de gasto :");
+        for (let i = 0; i < gastos1.length; i += 1) {
+                    if (gastos1[i].fecha == fechabusqueda) {
+                        console.log(`${gastos1[i].categoria} - $${gastos1[i].monto} - ${gastos1[i].descripcion}`);
+                    }
+               }
+    }
+    if (opc==2){
+        let categoriabusqueda=prompt ("ingrese la categoria a consultar:")
+        for (let i = 0; i < gastos1.length; i += 1) {
+                    if (gastos1[i].categoria == categoriabusqueda) {
+                        console.log(`${gastos1[i].categoria} - $${gastos1[i].monto} - ${gastos1[i].descripcion}`);
+                    }
+               }
     }
 }
