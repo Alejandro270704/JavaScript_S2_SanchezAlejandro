@@ -21,7 +21,7 @@ function simuladorGasto() {
         } else if (opcion == 2) { 
             lista_gasto(gastos1); //completado
         } else if (opcion == 3) {
-            calcularGasto(gastos1);
+            calcularGasto(gastos1); // completado 
         } else if (opcion == 4) {
             generarReporte(gastos1); // completado
         } else if (opcion == 5) {
@@ -113,7 +113,7 @@ function generarReporte(gastos1) {
             if (opcion == 1) {
                 for (let i = 0; i < gastos1.length; i += 1) {
                     if (gastos1[i].fecha == fechabusqueda) {
-                        console.log(`${gastos1[i].categoria} - $${gastos1[i].monto} - ${gastos1[i].descripcion}`);
+                        console.log(gastos1[i].categoria +"- $"+  gastos1[i].monto +"-"+ gastos1[i].descripcion);
                     }
                 }
             } 
@@ -143,7 +143,7 @@ function generarReporte(gastos1) {
             if (opcion == 1) {
                 for (let i = 0; i < gastos1.length; i += 1) {
                     if (gastos1[i].fecha == fechabusqueda) {
-                        console.log(`${gastos1[i].categoria} - $${gastos1[i].monto} - ${gastos1[i].descripcion}`);
+                        console.log(gastos1[i].categoria +"- $"+  gastos1[i].monto +"-"+ gastos1[i].descripcion);
                     }
                 }
             } else if (opcion == 2) {
@@ -172,7 +172,7 @@ function generarReporte(gastos1) {
             if (opcion == 1) {
                 for (let i = 0; i < gastos1.length; i += 1) {
                     if (gastos1[i].fecha == fechabusqueda) {
-                        console.log(`${gastos1[i].categoria} - $${gastos1[i].monto} - ${gastos1[i].descripcion}`);
+                        console.log(gastos1[i].categoria +"- $"+  gastos1[i].monto +"-"+ gastos1[i].descripcion);
                     }
                 }
             } else if (opcion == 2) {
@@ -198,7 +198,7 @@ function lista_gasto(gastos1){
         let fechabusqueda = prompt("digite la fecha exacta para calcular total de gasto :");
         for (let i = 0; i < gastos1.length; i += 1) {
                     if (gastos1[i].fecha == fechabusqueda) {
-                        console.log(`${gastos1[i].categoria} - $${gastos1[i].monto} - ${gastos1[i].descripcion}`);
+                        console.log(gastos1[i].categoria +"- $"+  gastos1[i].monto +"-"+ gastos1[i].descripcion);
                     }
                }
     }
@@ -206,8 +206,16 @@ function lista_gasto(gastos1){
         let categoriabusqueda=prompt ("ingrese la categoria a consultar:")
         for (let i = 0; i < gastos1.length; i += 1) {
                     if (gastos1[i].categoria == categoriabusqueda) {
-                        console.log(`${gastos1[i].categoria} - $${gastos1[i].monto} - ${gastos1[i].descripcion}`);
+                        console.log(gastos1[i].categoria +"- $"+  gastos1[i].monto +"-"+ gastos1[i].descripcion);
                     }
                }
     }
+}function calcularGasto(gastos1){
+    let total=0;
+    for (let i=0;i<gastos1.length;i+=1){
+        total += gastos1[i].monto;}
+    console.log("=============================================");
+    console.log("        Total de todos los gastos:" + total);
+    console.log("=============================================");
+    
 }
