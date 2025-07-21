@@ -2,21 +2,24 @@
 function simuladorGasto() {
     let boleano = true;
     let gastos1 = [];
+    let reportes=[];
     while (boleano) {
         //simulador de gasto      
         
-        let opcion =parseInt( prompt)(
-        `=============================================
+        let opcion =parseInt( prompt(
+        `============================================
                 Simulador de Gasto Diario            
-        =============================================
+        ============================================
         Seleccione una opción:
         1. Registrar/eliminar/modificar gasto
         2. Listar gastos
         3. Calcular total de gastos
         4. Generar reporte de gastos
         5. Salir
-        =============================================
-        Eliga una opción numerica`);
+        ============================================
+        Eliga una opción numerica`
+        ))
+        
 
         if (opcion == 1) {
             nuevoGasto(gastos1); // completado
@@ -25,7 +28,7 @@ function simuladorGasto() {
         } else if (opcion == 3) {
             calcularGasto(gastos1); // completado 
         } else if (opcion == 4) {
-            generarReporte(gastos1); // completado
+            generarReporte(gastos1,reportes); // completado
         } else if (opcion == 5) {
             boleano = false;
             console.log("ha salido del programa ");
@@ -38,9 +41,9 @@ function simuladorGasto() {
 function nuevoGasto(gastos1) {
     let opc = parseInt(prompt(
     `
-    =============================================
+    ============================================
                     menu de gastos
-    =============================================
+    ============================================
     1.agregar un gasto 
     2.modificar gasto 
     3.eliminar gasto 
@@ -92,14 +95,14 @@ function nuevoGasto(gastos1) {
 
 function generarReporte(gastos1) {
     let opc = parseInt(prompt(`
-    =============================================
+    ============================================
                Generar Reporte de Gastos        
-    =============================================
+    ============================================
           1. Diario
           2. Semanal
           3. Mensual
           4. Regresar al menú principal
-    =============================================
+    ============================================
     digite opcion numerica:`))
     
     
@@ -110,19 +113,30 @@ function generarReporte(gastos1) {
         let fechabusqueda = prompt("digite la fecha exacta para calcular total de gasto :");
         let x = true;
         while (x == true) {
-            console.log("=============================================");
-            console.log("             ¿Que desea hacer?");
-            console.log("=============================================");
-            console.log("               1.ver reporte");
-            console.log("               2.guardar reporte");
-            console.log("               3.atras");
-            console.log("=============================================");
-            let opcion = prompt(" digite opcion numerica:");
+            let opcion = parseInt(prompt(` 
+        ============================================
+                     ¿Que desea hacer?
+        ============================================
+                       1.ver reporte
+                       2.guardar reporte
+                       3.atras
+        ============================================
+         digite opcion numerica:`))
+       
+            
             opcion = parseInt(opcion);
             if (opcion == 1) {
                 for (let i = 0; i < gastos1.length; i += 1) {
                     if (gastos1[i].fecha == fechabusqueda) {
-                        alert(gastos1[i].categoria +"- $"+  gastos1[i].monto+"-"+gastos1[i].fecha +"-"+ gastos1[i].descripcion);
+                        alert(`
+                            ============================================
+                                        Reporte de gastos
+                            ============================================+
+                            categoría: ${gastos1[i].categoria}
+                            monto: $ ${gastos1[i].monto}
+                            fecha: ${gastos1[i].fecha}
+                            descripción: ${gastos1[i].descripcion}
+                            ============================================`)
                     }
                 }
             } 
@@ -140,24 +154,35 @@ function generarReporte(gastos1) {
         let fechabusqueda = prompt("digite la fecha exacta para calcular total de gasto :");
         let x = true;
         while (x == true) {
-            console.log("=============================================");
-            console.log("             ¿Que desea hacer?");
-            console.log("=============================================");
-            console.log("               1.ver reporte");
-            console.log("               2.guardar reporte");
-            console.log("               3.atras");
-            console.log("=============================================");
-            let opcion = prompt(" digite opcion numerica:");
-            opcion = parseInt(opcion);
+            let opcion = parseInt(prompt(`
+            ============================================
+                         ¿Que desea hacer?
+            ============================================
+                           1.ver reporte
+                           2.guardar reporte
+                           3.atras
+            ============================================
+             digite opcion numerica:
+            opcion = parseInt(opcion);`))
+            
             if (opcion == 1) {
                 for (let i = 0; i < gastos1.length; i += 1) {
                     if (gastos1[i].fecha == fechabusqueda) {
-                        alert(gastos1[i].categoria +"- $"+  gastos1[i].monto+"-"+gastos1[i].fecha +"-"+ gastos1[i].descripcion);
-                    }
-                }
-            } else if (opcion == 2) {
+                        alert(`
+                            ============================================
+                                        Reporte de gastos
+                            ============================================+
+                            categoría: ${gastos1[i].categoria}
+                            monto: $ ${gastos1[i].monto}
+                            fecha: ${gastos1[i].fecha}
+                            descripción: ${gastos1[i].descripcion}
+                            ============================================`)
+                        }
+            }} 
+            else if (opcion == 2) {
                 console.log("se guardó correctamente el reporte");
-            } else if (opcion == 3) {
+            } 
+            else if (opcion == 3) {
                 x = false;
             }
         }
@@ -169,19 +194,29 @@ function generarReporte(gastos1) {
         let fechabusqueda = prompt("digite la fecha exacta para calcular total de gasto :");
         let x = true;
         while (x == true) {
-            console.log("=============================================");
-            console.log("             ¿Que desea hacer?");
-            console.log("=============================================");
-            console.log("               1.ver reporte");
-            console.log("               2.guardar reporte");
-            console.log("               3.atras");
-            console.log("=============================================");
-            let opcion = prompt(" digite opcion numerica:");
+            let opcion = parseInt(prompt(`
+            ============================================
+                         ¿Que desea hacer?
+            ============================================
+                           1.ver reporte
+                           2.guardar reporte
+                           3.atras
+            ============================================
+             digite opcion numerica:`))
+            
             opcion = parseInt(opcion);
             if (opcion == 1) {
                 for (let i = 0; i < gastos1.length; i += 1) {
                     if (gastos1[i].fecha == fechabusqueda) {
-                        alert(gastos1[i].categoria +"- $"+  gastos1[i].monto+"-"+gastos1[i].fecha +"-"+ gastos1[i].descripcion);
+                        alert(`
+                            ============================================
+                                        Reporte de gastos
+                            ============================================+
+                            categoría: ${gastos1[i].categoria}
+                            monto: $ ${gastos1[i].monto}
+                            fecha: ${gastos1[i].fecha}
+                            descripción: ${gastos1[i].descripcion}
+                            ============================================`)
                     }
                 }
             } else if (opcion == 2) {
@@ -223,8 +258,8 @@ function lista_gasto(gastos1){
     let total=0;
     for (let i=0;i<gastos1.length;i+=1){
         total += gastos1[i].monto;}
-    console.log("=============================================");
-    console.log("        Total de todos los gastos:" + total);
-    console.log("=============================================");
+    alert("============================================");
+    alert("        Total de todos los gastos:" + total);
+    alert("============================================");
     
 }
