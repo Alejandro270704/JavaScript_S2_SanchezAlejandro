@@ -124,8 +124,9 @@ function generarReporte(gastos1) {
          digite opcion numerica:`))
        
             
-            opcion = parseInt(opcion);
+                
             if (opcion == 1) {
+                let encontrado = false;
                 for (let i = 0; i < gastos1.length; i += 1) {
                     if (gastos1[i].fecha == fechabusqueda) {
                         alert(`
@@ -137,8 +138,12 @@ function generarReporte(gastos1) {
                             fecha: ${gastos1[i].fecha}
                             descripción: ${gastos1[i].descripcion}
                             ============================================`)
+                            encontrado = true;
                     }
                 }
+                if (!encontrado){
+                        alert("no se encontro el gasto en esa fecha")
+                    }
             } 
             else if (opcion == 2) {
                 console.log("se guardó correctamente el reporte");
@@ -166,6 +171,7 @@ function generarReporte(gastos1) {
             opcion = parseInt(opcion);`))
             
             if (opcion == 1) {
+                let encontrado = false;
                 for (let i = 0; i < gastos1.length; i += 1) {
                     if (gastos1[i].fecha == fechabusqueda) {
                         alert(`
@@ -177,8 +183,13 @@ function generarReporte(gastos1) {
                             fecha: ${gastos1[i].fecha}
                             descripción: ${gastos1[i].descripcion}
                             ============================================`)
+                            encontrado = true;
                         }
-            }} 
+            }
+                if (!encontrado){
+                    alert("no se encontro el gasto en esa fecha")
+                    }} 
+            
             else if (opcion == 2) {
                 console.log("se guardó correctamente el reporte");
             } 
@@ -203,9 +214,9 @@ function generarReporte(gastos1) {
                            3.atras
             ============================================
              digite opcion numerica:`))
-            
-            opcion = parseInt(opcion);
+             
             if (opcion == 1) {
+                let encontrado = false;
                 for (let i = 0; i < gastos1.length; i += 1) {
                     if (gastos1[i].fecha == fechabusqueda) {
                         alert(`
@@ -217,11 +228,19 @@ function generarReporte(gastos1) {
                             fecha: ${gastos1[i].fecha}
                             descripción: ${gastos1[i].descripcion}
                             ============================================`)
+                            encontrado = true;
                     }
+                    
                 }
-            } else if (opcion == 2) {
+                if (!encontrado){
+                        alert("no se encontro el gasto en esa fecha")
+                    }
+
+            } 
+            else if (opcion == 2) {
                 console.log("se guardó correctamente el reporte");
-            } else if (opcion == 3) {
+            }
+             else if (opcion == 3) {
                 x = false;
             }
         }
