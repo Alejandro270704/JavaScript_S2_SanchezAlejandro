@@ -4,17 +4,19 @@ function simuladorGasto() {
     let gastos1 = [];
     while (boleano) {
         //simulador de gasto      
-        console.log("=============================================");
-        console.log("        Simulador de Gasto Diario            ");
-        console.log("=============================================");
-        console.log("          Seleccione una opción:             ");
-        console.log("         1. Registrar/eliminar/modificar gasto ");
-        console.log("         2. Listar gastos                  ");
-        console.log("         3. Calcular total de gastos");
-        console.log("         4. Generar reporte de gastos");
-        console.log("         5. Salir");
-        console.log("=============================================");
-        let opcion = prompt("eliga una opción numerica :");
+        
+        let opcion =parseInt( prompt)(
+        `=============================================
+                Simulador de Gasto Diario            
+        =============================================
+        Seleccione una opción:
+        1. Registrar/eliminar/modificar gasto
+        2. Listar gastos
+        3. Calcular total de gastos
+        4. Generar reporte de gastos
+        5. Salir
+        =============================================
+        Eliga una opción numerica`);
 
         if (opcion == 1) {
             nuevoGasto(gastos1); // completado
@@ -34,11 +36,15 @@ function simuladorGasto() {
 }
 
 function nuevoGasto(gastos1) {
-    console.log("menu de gastos");
-    console.log("1.agregar un gasto ");
-    console.log("2.modificar gasto ");
-    console.log("3.eliminar gasto ");
-    let opc = parseInt(prompt("ingrese opcion numerica:"));
+    let opc = parseInt(prompt(
+    `
+    =============================================
+                    menu de gastos
+    =============================================
+    1.agregar un gasto 
+    2.modificar gasto 
+    3.eliminar gasto 
+    ingrese opcion numerica:`))
     let descripcion = "";
 
     if (opc == 1) {
@@ -85,15 +91,18 @@ function nuevoGasto(gastos1) {
 }
 
 function generarReporte(gastos1) {
-    console.log("=============================================");
-    console.log("           Generar Reporte de Gastos         ");
-    console.log("=============================================");
-    console.log("      1. Diario");
-    console.log("      2. Semanal");
-    console.log("      3. Mensual");
-    console.log("      4. Regresar al menú principal");
-    console.log("=============================================");
-    let opc = parseInt(prompt("digite opcion numerica:"));
+    let opc = parseInt(prompt(`
+    =============================================
+               Generar Reporte de Gastos        
+    =============================================
+          1. Diario
+          2. Semanal
+          3. Mensual
+          4. Regresar al menú principal
+    =============================================
+    digite opcion numerica:`))
+    
+    
 
     if (opc == 1) {
         console.log(gastos1);
