@@ -109,7 +109,7 @@ function generarReporte(gastos1) {
 
     if (opc == 1) {
         console.log(gastos1);
-        console.log("formato esperado : dd/mm/yyyy");
+        alert("formato esperado : dd/mm/yyyy");
         let fechabusqueda = prompt("digite la fecha exacta para calcular total de gasto :");
         let x = true;
         while (x == true) {
@@ -132,7 +132,7 @@ function generarReporte(gastos1) {
                         alert(`
                             ============================================
                                         Reporte de gastos
-                            ============================================+
+                            ============================================
                             categoría: ${gastos1[i].categoria}
                             monto: $ ${gastos1[i].monto}
                             fecha: ${gastos1[i].fecha}
