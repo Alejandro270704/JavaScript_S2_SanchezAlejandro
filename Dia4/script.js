@@ -1,6 +1,6 @@
 function menu (){
     //simulador de menu
-    let boleano =true ;
+    let boleano=true ;
     let IngredientesL= [
         {
             nombre: "Pan",
@@ -69,7 +69,7 @@ function menu (){
         nombre: "ChefC",
         especialidad: "Gourmet"
     }];
-    while (boleano=true){
+    while (boleano==true){
         let opcion =parseInt( prompt(
             `============================================
                     Menu de Hamburguesa            
@@ -95,9 +95,9 @@ function menu (){
             else if (opcion == 4) {
                 chef(chefL);
             }
-             else if (opcion == 5) {
-                boleano = false;
-                console.log("ha salido del programa ");
+            else if (opcion == 5) {
+                boleano=false;
+                alert("ha salido del programa ");
             } else {
                 alert("opcion no valida");
             }
@@ -428,6 +428,62 @@ function chef (chefL){
     chefL.push(nuevo_che)
     alert("se añadio el chef")
 
-    return (chefL)
+    
 }
+    if (opc===2){
+        let lista = "seleccione el numero del chef a editar"
+        for (let i = 0; i < chefL.length; i += 1){
+            lista +=` 
+            ${i+1}.${chefL[i].nombre} -${chefL[i].especialidad}`
+        }
+        let eleccion =parseInt(prompt(lista))-1;
+        if (eleccion >= 0 && eleccion < chefL.length){
+            let eleccion2= parseInt(prompt(`
+                ============================================
+                campos a editar 
+                ============================================
+                1.nombre
+                2.especialidad 
+                ============================================
+                seleccione la opcion que quiere editar`));
+            let campo= ""
+            if (eleccion2===1){
+                campo= "nombre";
+                let nuevoN= prompt("ingrese el nuevo nombre:");
+                chefL[eleccion][campo]=nuevoN;
+            }
+            if (eleccion2===2){
+                campo= "especialidad";
+                let nuevoS= prompt("ingrese la nueva especialidad:");
+                chefL[eleccion][campo]=nuevoS;
+            }
+        }
+    }
+    if (opc===3){
+        let mensaje = "seleccione el numero del chef a eliminar"
+        for (let i = 0; i < chefL.length; i += 1){
+            
+            mensaje +=` 
+            ${i+1}.${chefL[i].nombre} -${chefL[i].especialidad}`
+        }
+        let eleccion =parseInt(prompt(mensaje))-1;
+        if (eleccion >=0 && eleccion< chefL.length ){
+            let confirmar=prompt ("estas seguro s/n").toLowerCase()
+            if (confirmar =="s"){
+                chefL.splice(eleccion,1)
+            }
+            else {
+                alert("eliminacion cancelada")
+            }
+        }
+    }
+    if (opc===4){
+        let mensaje2 ="lista de chefs"
+        for (let i = 0; i < chefL.length; i += 1){
+            
+            mensaje2 +=` 
+            ${i+1}.${chefL[i].nombre} -${chefL[i].especialidad}`
+        }
+        alert(mensaje2);
+}return (chefL)
 }
