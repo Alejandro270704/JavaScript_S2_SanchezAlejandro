@@ -135,7 +135,7 @@ function ingredientesf(IngredientesL){
     }
     if (opc===2){
             for (const property in IngredientesL) {
-                console.log(`${property}: ${IngredientesL[property]}`);
+                alert(`${property}: ${IngredientesL[property]}`);
 
         }
         
