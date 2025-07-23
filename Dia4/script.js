@@ -233,11 +233,74 @@ function categorias (categoriaL){
     }
     categoriaL.push(nuevo_ca)
     alert("se añadio la categoria")
+    }
+    
+    if (opc===2){
+            let lista = "seleccione el numero del categoria a editar"
+            for (let i = 0; i < categoriaL.length; i += 1){
+                lista +=` 
+                ${i+1}.${categoriaL[i].nombre} -${categoriaL[i].descripcion}`
+            }
+            let eleccion =parseInt(prompt(lista))-1;
+            if (eleccion >= 0 && eleccion < categoriaL.length){
+                let eleccion2= parseInt(prompt(`
+                    ============================================
+                    campos a editar 
+                    ============================================
+                    1.nombre
+                    2.descripcion
+                    ============================================
+                    seleccione la opcion que quiere editar`));
+                    let campo= ""
+                    if (eleccion2===1){
+                        campo= "nombre";
+                        let nuevoN= prompt("ingrese el nuevo nombre:");
+                        categoriaL[eleccion][campo]=nuevoN;
+                    }
+                    if (eleccion2===2){
+                        campo= "descripcion";
+                        let nuevoD= prompt("ingrese el nueva descripcion:");
+                        categoriaL[eleccion][campo]=nuevoD;
+                    }
 
+
+            }
+                
+
+            
+        }
+    if (opc===3){
+        let mensaje = "seleccione el numero de la categoria a eliminar"
+            for (let i = 0; i < categoriaL.length; i += 1){
+                
+                mensaje +=` 
+                ${i+1}.${categoriaL[i].nombre} -${categoriaL[i].descripcion}`
+            }
+            let eleccion =parseInt(prompt(mensaje))-1;
+            if (eleccion >=0 && eleccion< categoriaL.length ){
+                let confirmar=prompt ("estas seguro s/n").toLowerCase()
+                if (confirmar =="s"){
+                    categoriaL.splice(eleccion,1)
+                }
+                else {
+                    alert("eliminacion cancelada")
+                }
+            }
+    }
+    if (opc===4){
+        let mensaje2 ="lista de categorias"
+        for (let i = 0; i < categoriaL.length; i += 1){
+                
+                mensaje2 +=` 
+                ${i+1}.${categoriaL[i].nombre} -${categoriaL[i].descripcion}`
+            }
+        alert(mensaje2)
+    }
     return (categoriaL)
+    
 
 }
-}
+
 function hamburguesa(hamburguesaL){
     let opc= parseInt(prompt(`
     ============================================
@@ -272,8 +335,72 @@ function hamburguesa(hamburguesaL){
     hamburguesaL.push(nuevo_ha)
     alert("se añadio la hamburguesa")
 
-    return (categoriaL)
-}}
+    
+}
+    if (opc===2){
+            let lista = "seleccione el numero de la hamburguesa a editar"
+            for (let i = 0; i < hamburguesaL.length; i += 1){
+                lista +=` 
+                ${i+1}.${categoriaL[i].nombre} -${categoriaL[i].descripcion}`
+            }
+            let eleccion =parseInt(prompt(lista))-1;
+            if (eleccion >= 0 && eleccion < categoriaL.length){
+                let eleccion2= parseInt(prompt(`
+                    ============================================
+                    campos a editar 
+                    ============================================
+                    1.nombre
+                    2.descripcion
+                    ============================================
+                    seleccione la opcion que quiere editar`));
+                    let campo= ""
+                    if (eleccion2===1){
+                        campo= "nombre";
+                        let nuevoN= prompt("ingrese el nuevo nombre:");
+                        categoriaL[eleccion][campo]=nuevoN;
+                    }
+                    if (eleccion2===2){
+                        campo= "descripcion";
+                        let nuevoD= prompt("ingrese el nueva descripcion:");
+                        categoriaL[eleccion][campo]=nuevoD;
+                    }
+
+
+            }
+                
+
+            
+        }
+    if (opc===3){
+        let mensaje = "seleccione el numero de la categoria a eliminar"
+            for (let i = 0; i < categoriaL.length; i += 1){
+                
+                mensaje +=` 
+                ${i+1}.${categoriaL[i].nombre} -${categoriaL[i].descripcion}`
+            }
+            let eleccion =parseInt(prompt(mensaje))-1;
+            if (eleccion >=0 && eleccion< categoriaL.length ){
+                let confirmar=prompt ("estas seguro s/n").toLowerCase()
+                if (confirmar =="s"){
+                    categoriaL.splice(eleccion,1)
+                }
+                else {
+                    alert("eliminacion cancelada")
+                }
+            }
+    }
+    if (opc===4){
+        let mensaje2 ="lista de categorias"
+        for (let i = 0; i < categoriaL.length; i += 1){
+                
+                mensaje2 +=` 
+                ${i+1}.${categoriaL[i].nombre} -${categoriaL[i].descripcion}`
+            }
+        alert(mensaje2)
+    }
+return (hamburguesaL)
+
+}
 function chef (chefL){
     let opc= parseInt(prompt(`
     ============================================
