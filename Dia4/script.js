@@ -97,7 +97,7 @@ function menu (){
             }
              else if (opcion == 5) {
                 boleano = false;
-                alert("ha salido del programa ");
+                console.log("ha salido del programa ");
             } else {
                 alert("opcion no valida");
             }
@@ -134,15 +134,82 @@ function ingredientesf(IngredientesL){
     alert("se añadio el ingrediente")
     }
     if (opc===2){
-            for (const property in IngredientesL) {
-                alert(`${property}: ${IngredientesL[property]}`);
+            let lista = "seleccione el numero del ingrdiente a editar"
+            for (let i = 0; i < IngredientesL.length; i += 1){
+                lista +=` 
+                ${i+1}.${IngredientesL[i].nombre} -${IngredientesL[i].descripcion}-${IngredientesL[i].precio}-${IngredientesL[i].stock}`
+            }
+            let eleccion =parseInt(prompt(lista))-1;
+            if (eleccion >= 0 && eleccion < IngredientesL.length){
+                let eleccion2= parseInt(prompt(`
+                    ============================================
+                    campos a editar 
+                    ============================================
+                    1.nombre
+                    2.descripcion
+                    3.precio
+                    4.stock 
+                    ============================================
+                    seleccione la opcion que quiere editar`));
+                    let campo= ""
+                    if (eleccion2===1){
+                        campo= "nombre";
+                        let nuevoN= prompt("ingrese el nuevo nombre:");
+                        IngredientesL[eleccion][campo]=nuevoN;
+                    }
+                    if (eleccion2===2){
+                        campo= "descripcion";
+                        let nuevoD= prompt("ingrese el nueva descripcion:");
+                        IngredientesL[eleccion][campo]=nuevoD;
+                    }
+                    if (eleccion2===3){
+                        campo= "precio";
+                        let nuevoP= prompt("ingrese el nuevo precio:");
+                        IngredientesL[eleccion][campo]=nuevoP;
+                    }
+                    if (eleccion2===4){
+                        campo= "stock";
+                        let nuevoS= prompt("ingrese el nuevo stock:");
+                        IngredientesL[eleccion][campo]=nuevoS;
+                    }
 
+            }
+                
+
+            
         }
+    if (opc===3){
+        let mensaje = "seleccione el numero del ingrdiente a eliminar"
+            for (let i = 0; i < IngredientesL.length; i += 1){
+                
+                mensaje +=` 
+                ${i+1}.${IngredientesL[i].nombre} -${IngredientesL[i].descripcion}-${IngredientesL[i].precio}-${IngredientesL[i].stock}`
+            }
+            let eleccion =parseInt(prompt(mensaje))-1;
+            if (eleccion >=0 && eleccion< IngredientesL.length ){
+                let confirmar=prompt ("estas seguro s/n").toLowerCase()
+                if (confirmar =="s"){
+                    IngredientesL.splice(eleccion,1)
+                }
+                else {
+                    alert("eliminacion cancelada")
+                }
+            }
+    }
+    if (opc===4){
+        let mensaje2 ="lista de ingredientes"
+        for (let i = 0; i < IngredientesL.length; i += 1){
+                
+                mensaje2 +=` 
+                ${i+1}.${IngredientesL[i].nombre} -${IngredientesL[i].descripcion}-${IngredientesL[i].precio}-${IngredientesL[i].stock}`
+            }
+        alert(mensaje2)
+    }
         
         
 
     }
-    }
+    
 function categorias (categoriaL){
     let opc= parseInt(prompt(`
     ============================================
