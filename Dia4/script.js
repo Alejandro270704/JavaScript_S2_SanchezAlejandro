@@ -37,37 +37,37 @@ function menu (){
     ];
     let hamburguesaL=[ 
         {
-        "nombre": "Clásica",
-        "categoria": "Clásica",
-        "ingredientes": ["Pan", "Carne de res", "Queso cheddar", "Lechuga", "Tomate", "Cebolla", "Mayonesa", "Ketchup"],
-        "precio": 10,
-        "chef": "ChefA"
+        nombre: "Clásica",
+        categoria: "Clásica",
+        ingredientes: ["Pan", "Carne de res", "Queso cheddar", "Lechuga", "Tomate", "Cebolla", "Mayonesa", "Ketchup"],
+        precio: 10,
+        chef: "ChefA"
     },
     {
-        "nombre": "Vegetariana",
-        "categoria": "Vegetariana",
-        "ingredientes": ["Pan integral", "Hamburguesa de lentejas", "Queso suizo", "Espinacas", "Cebolla morada", "Aguacate", "Mayonesa vegana"],
-        "precio": 8,
-        "chef": "ChefB"
+        nombre: "Vegetariana",
+        categoria: "Vegetariana",
+        ingredientes: ["Pan integral", "Hamburguesa de lentejas", "Queso suizo", "Espinacas", "Cebolla morada", "Aguacate", "Mayonesa vegana"],
+        precio: 8,
+        chef: "ChefB"
     },
     {
-        "nombre": "Doble Carne",
-        "categoria": "Gourmet",
-        "ingredientes": ["Pan de sésamo", "Doble carne de res", "Queso cheddar", "Bacon", "Lechuga", "Cebolla caramelizada", "Salsa BBQ"],
-        "precio": 12,
-        "chef": "ChefC"
+        nombre: "Doble Carne",
+        categoria: "Gourmet",
+        ingredientes: ["Pan de sésamo", "Doble carne de res", "Queso cheddar", "Bacon", "Lechuga", "Cebolla caramelizada", "Salsa BBQ"],
+        precio: 12,
+        chef: "ChefC"
     }];
     let chefL=[ {
-        "nombre": "ChefA",
-        "especialidad": "Carnes"
+        nombre: "ChefA",
+        especialidad: "Carnes"
     },
     {
-        "nombre": "ChefB",
-        "especialidad": "Cocina Vegetariana"
+        nombre: "ChefB",
+        especialidad: "Cocina Vegetariana"
     },
     {
-        "nombre": "ChefC",
-        "especialidad": "Gourmet"
+        nombre: "ChefC",
+        especialidad: "Gourmet"
     }];
     while (boleano=true){
         let opcion =parseInt( prompt(
@@ -301,105 +301,108 @@ function categorias (categoriaL){
 
 }
 
-function hamburguesa(hamburguesaL){
-    let opc= parseInt(prompt(`
+function hamburguesa(hamburguesaL) {
+    let opc = parseInt(prompt(`
     ============================================
-                 hamurguesa             
+                 HAMBURGUESA             
     ============================================
-    1.añadir hamurguesa  
-    2.modificar hamurguesa 
-    3.eliminar hamurguesa 
-    4.listar hamurguesa  
-
+    1. Añadir hamburguesa  
+    2. Modificar hamburguesa 
+    3. Eliminar hamburguesa 
+    4. Listar hamburguesas  
     ============================================
-            Eliga una opción numerica:
-    `))
-    if (opc===1){
-        let nombre=prompt("ingrese el nombre");
-        let categoria=prompt("ingrese la categoria");
-        let ingredientes=prompt("ingrese los ingredientes");
-        let precio=prompt("ingrese el precio");
-        let chef=prompt("ingrese el chef");
+    Elija una opción numérica:
+    `));
 
-
-
+    if (opc === 1) {
+        let nombre = prompt("Ingrese el nombre:");
+        let categoria = prompt("Ingrese la categoría:");
+        let ingredientes = prompt("Ingrese los ingredientes separados por coma :").split(",");
+        let precio = prompt("Ingrese el precio:");
+        let chef = prompt("Ingrese el chef:");
 
         let nuevo_ha = {
             nombre: nombre,
             categoria: categoria,
             ingredientes: ingredientes,
-            precio:precio,
-            chef: chef,
-            
+            precio: precio,
+            chef: chef
+        };
+        hamburguesaL.push(nuevo_ha);
+        alert("Se añadió la hamburguesa");
     }
-    hamburguesaL.push(nuevo_ha)
-    alert("se añadio la hamburguesa")
 
-    
-}
-    if (opc===2){
-            let lista = "seleccione el numero de la hamburguesa a editar"
-            for (let i = 0; i < hamburguesaL.length; i += 1){
-                lista +=` 
-                ${i+1}.${categoriaL[i].nombre} -${categoriaL[i].descripcion}`
-            }
-            let eleccion =parseInt(prompt(lista))-1;
-            if (eleccion >= 0 && eleccion < categoriaL.length){
-                let eleccion2= parseInt(prompt(`
-                    ============================================
-                    campos a editar 
-                    ============================================
-                    1.nombre
-                    2.descripcion
-                    ============================================
-                    seleccione la opcion que quiere editar`));
-                    let campo= ""
-                    if (eleccion2===1){
-                        campo= "nombre";
-                        let nuevoN= prompt("ingrese el nuevo nombre:");
-                        categoriaL[eleccion][campo]=nuevoN;
-                    }
-                    if (eleccion2===2){
-                        campo= "descripcion";
-                        let nuevoD= prompt("ingrese el nueva descripcion:");
-                        categoriaL[eleccion][campo]=nuevoD;
-                    }
-
-
-            }
-                
-
-            
+    if (opc === 2) {
+        let lista = "Seleccione el número de la hamburguesa a editar:";
+        for (let i = 0; i < hamburguesaL.length; i++) {
+            lista += `
+            ${i + 1}. ${hamburguesaL[i].nombre} - ${hamburguesaL[i].categoria} - ${hamburguesaL[i].ingredientes} - ${hamburguesaL[i].precio} - ${hamburguesaL[i].chef}`;
         }
-    if (opc===3){
-        let mensaje = "seleccione el numero de la categoria a eliminar"
-            for (let i = 0; i < categoriaL.length; i += 1){
-                
-                mensaje +=` 
-                ${i+1}.${categoriaL[i].nombre} -${categoriaL[i].descripcion}`
-            }
-            let eleccion =parseInt(prompt(mensaje))-1;
-            if (eleccion >=0 && eleccion< categoriaL.length ){
-                let confirmar=prompt ("estas seguro s/n").toLowerCase()
-                if (confirmar =="s"){
-                    categoriaL.splice(eleccion,1)
-                }
-                else {
-                    alert("eliminacion cancelada")
-                }
-            }
-    }
-    if (opc===4){
-        let mensaje2 ="lista de categorias"
-        for (let i = 0; i < categoriaL.length; i += 1){
-                
-                mensaje2 +=` 
-                ${i+1}.${categoriaL[i].nombre} -${categoriaL[i].descripcion}`
-            }
-        alert(mensaje2)
-    }
-return (hamburguesaL)
+        let eleccion = parseInt(prompt(lista)) - 1;
+        if (eleccion >= 0 && eleccion < hamburguesaL.length) {
+            let campo = parseInt(prompt(`
+                ============================================
+                Campos a editar 
+                ============================================
+                1. Nombre
+                2. Categoría
+                3. Ingredientes
+                4. Precio
+                5. Chef
+                ============================================
+                Elija el campo a editar:
+            `));
 
+            if (campo === 1) {
+                let nuevoN = prompt("Ingrese el nuevo nombre:");
+                hamburguesaL[eleccion].nombre = nuevoN;
+            } else if (campo === 2) {
+                let nuevaC = prompt("Ingrese la nueva categoría:");
+                hamburguesaL[eleccion].categoria = nuevaC;
+            } else if (campo === 3) {
+                let nuevoI = prompt("Ingrese los nuevos ingredientes separados por coma:").split(",");
+                hamburguesaL[eleccion].ingredientes = nuevoI;
+            } else if (campo === 4) {
+                let nuevoP = prompt("Ingrese el nuevo precio:");
+                hamburguesaL[eleccion].precio = nuevoP;
+            } else if (campo === 5) {
+                let nuevoChef = prompt("Ingrese el nuevo chef:");
+                hamburguesaL[eleccion].chef = nuevoChef;
+            } else {
+                alert("Opción inválida");
+            }
+        }
+    }
+
+    if (opc === 3) {
+        let mensaje = "Seleccione el número de la hamburguesa a eliminar:";
+        for (let i = 0; i < hamburguesaL.length; i++) {
+            mensaje += `
+            ${i + 1}. ${hamburguesaL[i].nombre} - ${hamburguesaL[i].categoria} - ${hamburguesaL[i].ingredientes} - ${hamburguesaL[i].precio} - ${hamburguesaL[i].chef}`;
+        }
+        let eleccion = parseInt(prompt(mensaje)) - 1;
+        if (eleccion >= 0 && eleccion < hamburguesaL.length) {
+            let confirmar = prompt("¿Está seguro? (s/n)").toLowerCase();
+            if (confirmar === "s") {
+                hamburguesaL.splice(eleccion, 1);
+                alert("Hamburguesa eliminada.");
+            } 
+            else {
+                alert("Eliminación cancelada.");
+            }
+        }
+    }
+
+    if (opc === 4) {
+        let mensaje2 = "Lista de hamburguesas:";
+        for (let i = 0; i < hamburguesaL.length; i++) {
+            mensaje2 += `
+            ${i + 1}. ${hamburguesaL[i].nombre} - ${hamburguesaL[i].categoria} - ${hamburguesaL[i].ingredientes} - ${hamburguesaL[i].precio} - ${hamburguesaL[i].chef}\n`;
+        }
+        alert(mensaje2);
+    }
+
+    return hamburguesaL;
 }
 function chef (chefL){
     let opc= parseInt(prompt(`
