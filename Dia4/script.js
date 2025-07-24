@@ -136,8 +136,7 @@ function ingredientesf(IngredientesL){
     if (opc===2){
             let lista = "seleccione el numero del ingrdiente a editar"
             for (let i = 0; i < IngredientesL.length; i += 1){
-                lista +=` 
-                ${i+1}.${IngredientesL[i].nombre} -${IngredientesL[i].descripcion}-${IngredientesL[i].precio}-${IngredientesL[i].stock}`
+                lista +=` n${i+1}.${IngredientesL[i].nombre} -${IngredientesL[i].descripcion}-${IngredientesL[i].precio}-${IngredientesL[i].stock}`
             }
             let eleccion =parseInt(prompt(lista))-1;
             if (eleccion >= 0 && eleccion < IngredientesL.length){
@@ -182,8 +181,7 @@ function ingredientesf(IngredientesL){
         let mensaje = "seleccione el numero del ingrdiente a eliminar"
             for (let i = 0; i < IngredientesL.length; i += 1){
                 
-                mensaje +=` 
-                ${i+1}.${IngredientesL[i].nombre} -${IngredientesL[i].descripcion}-${IngredientesL[i].precio}-${IngredientesL[i].stock}`
+                mensaje +=` \n${i+1}.${IngredientesL[i].nombre} -${IngredientesL[i].descripcion}-${IngredientesL[i].precio}-${IngredientesL[i].stock}`
             }
             let eleccion =parseInt(prompt(mensaje))-1;
             if (eleccion >=0 && eleccion< IngredientesL.length ){
@@ -200,8 +198,7 @@ function ingredientesf(IngredientesL){
         let mensaje2 ="lista de ingredientes"
         for (let i = 0; i < IngredientesL.length; i += 1){
                 
-                mensaje2 +=` 
-                ${i+1}.${IngredientesL[i].nombre} -${IngredientesL[i].descripcion}-${IngredientesL[i].precio}-${IngredientesL[i].stock}`
+                mensaje2 +=` \n${i+1}.${IngredientesL[i].nombre} -${IngredientesL[i].descripcion}-${IngredientesL[i].precio}-${IngredientesL[i].stock}`
             }
         alert(mensaje2)
     }
@@ -238,8 +235,7 @@ function categorias (categoriaL){
     if (opc===2){
             let lista = "seleccione el numero del categoria a editar"
             for (let i = 0; i < categoriaL.length; i += 1){
-                lista +=` 
-                ${i+1}.${categoriaL[i].nombre} -${categoriaL[i].descripcion}`
+                lista +=` \n${i+1}.${categoriaL[i].nombre} -${categoriaL[i].descripcion}`
             }
             let eleccion =parseInt(prompt(lista))-1;
             if (eleccion >= 0 && eleccion < categoriaL.length){
@@ -273,8 +269,7 @@ function categorias (categoriaL){
         let mensaje = "seleccione el numero de la categoria a eliminar"
             for (let i = 0; i < categoriaL.length; i += 1){
                 
-                mensaje +=` 
-                ${i+1}.${categoriaL[i].nombre} -${categoriaL[i].descripcion}`
+                mensaje +=` \n${i+1}.${categoriaL[i].nombre} -${categoriaL[i].descripcion}`
             }
             let eleccion =parseInt(prompt(mensaje))-1;
             if (eleccion >=0 && eleccion< categoriaL.length ){
@@ -335,8 +330,7 @@ function hamburguesa(hamburguesaL) {
     if (opc === 2) {
         let lista = "Seleccione el número de la hamburguesa a editar:";
         for (let i = 0; i < hamburguesaL.length; i++) {
-            lista += `
-            ${i + 1}. ${hamburguesaL[i].nombre} - ${hamburguesaL[i].categoria} - ${hamburguesaL[i].ingredientes} - ${hamburguesaL[i].precio} - ${hamburguesaL[i].chef}`;
+            lista += `\n${i + 1}. ${hamburguesaL[i].nombre} - ${hamburguesaL[i].categoria} - ${hamburguesaL[i].ingredientes} - ${hamburguesaL[i].precio} - ${hamburguesaL[i].chef}`;
         }
         let eleccion = parseInt(prompt(lista)) - 1;
         if (eleccion >= 0 && eleccion < hamburguesaL.length) {
@@ -377,8 +371,7 @@ function hamburguesa(hamburguesaL) {
     if (opc === 3) {
         let mensaje = "Seleccione el número de la hamburguesa a eliminar:";
         for (let i = 0; i < hamburguesaL.length; i++) {
-            mensaje += `
-            ${i + 1}. ${hamburguesaL[i].nombre} - ${hamburguesaL[i].categoria} - ${hamburguesaL[i].ingredientes} - ${hamburguesaL[i].precio} - ${hamburguesaL[i].chef}`;
+            mensaje += `\n${i + 1}. ${hamburguesaL[i].nombre} - ${hamburguesaL[i].categoria} - ${hamburguesaL[i].ingredientes} - ${hamburguesaL[i].precio} - ${hamburguesaL[i].chef}`;
         }
         let eleccion = parseInt(prompt(mensaje)) - 1;
         if (eleccion >= 0 && eleccion < hamburguesaL.length) {
@@ -396,8 +389,7 @@ function hamburguesa(hamburguesaL) {
     if (opc === 4) {
         let mensaje2 = "Lista de hamburguesas:";
         for (let i = 0; i < hamburguesaL.length; i++) {
-            mensaje2 += `
-            ${i + 1}. ${hamburguesaL[i].nombre} - ${hamburguesaL[i].categoria} - ${hamburguesaL[i].ingredientes} - ${hamburguesaL[i].precio} - ${hamburguesaL[i].chef}\n`;
+            mensaje2 += `\n${i + 1}. ${hamburguesaL[i].nombre} - ${hamburguesaL[i].categoria} - ${hamburguesaL[i].ingredientes} - ${hamburguesaL[i].precio} - ${hamburguesaL[i].chef}\n`;
         }
         alert(mensaje2);
     }
@@ -463,8 +455,7 @@ function chef (chefL){
         let mensaje = "seleccione el numero del chef a eliminar"
         for (let i = 0; i < chefL.length; i += 1){
             
-            mensaje +=` 
-            ${i+1}.${chefL[i].nombre} -${chefL[i].especialidad}`
+            mensaje +=` \n${i+1}.${chefL[i].nombre} -${chefL[i].especialidad}`
         }
         let eleccion =parseInt(prompt(mensaje))-1;
         if (eleccion >=0 && eleccion< chefL.length ){
