@@ -1,5 +1,5 @@
 function buscarpersonaje (){
-    const id=(prompt(" ingresa el id del personaje "));
+    const id =document.getElementById("cuadro").value ;
     const xml=  new XMLHttpRequest();
     const url= `https://swapi.py4e.com/api/people/${id}/`;
     xml.open("GET" ,url,true);
@@ -14,17 +14,23 @@ function buscarpersonaje (){
                 xmlplaneta.onreadystatechange=function(){
                     if (xmlplaneta.readyState === 4 && xmlplaneta.status === 200) {
                         const planetadatos = JSON.parse(xmlplaneta.responseText);
-                        console.log(
-                `Personaje:
-name: ${datos.name}
-height: ${datos.height}
-mass: ${datos.mass}
-hair_color: ${datos.hair_color}
-skin_color: ${datos.skin_color}
-eye_color: ${datos.eye_color}
-birth_year: ${datos.birth_year}
-gender: ${datos.gender}
-planeta:${planetadatos.name}`)
+                        const resultado=document.getElementById("resultado");
+                        resultado.innerHTML=(`
+                        <h1>Personaje: </h1>
+                        <p><strong> name: </strong> ${datos.name}</p>
+                        <p><strong> height: </strong> ${datos.height}</p>
+                        <p><strong> mass: </strong> ${datos.mass}</p>
+                        <p><strong> hair_color: </strong> ${datos.hair_color}</p>
+                        <p><strong> skin_color: </strong> ${datos.skin_color}</p>
+                        <p><strong> eye_color: </strong> ${datos.eye_color}</p>
+                        <p><strong> birth_year: </strong> ${datos.birth_year}</p>
+                        <p><strong> gender: </strong> ${datos.gender}</p>
+                        <p><strong> planeta: </strong> ${planetadatos.name}</p>
+
+
+                        `);
+                        
+                
                         
                 }
             
@@ -41,4 +47,5 @@ planeta:${planetadatos.name}`)
     }
     xml.send();
 }
-buscarpersonaje()
+const boton =document.getElementById("buscar");
+boton.addEventListener("click",buscarpersonaje);

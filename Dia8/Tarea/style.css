@@ -1,0 +1,25 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    background-color: rgba(39,43,48,255);
+}
+.contenido{
+    background-color: white;
+    margin-top: 5vh;
+    text-align: center;
+    border-radius: 2em;
+    padding: 3em;
+
+}
+#titulo{
+    color: #ffe404;
+    background-color: rgba(39,43,48,255) ;
+    text-align: center;
+    margin-top: 8vh;
+    
+}
