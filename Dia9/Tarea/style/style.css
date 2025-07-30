@@ -1,0 +1,23 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oxanium', cursive;
+    
+    }
+#contenido{
+    background:linear-gradient(rgb(55, 157, 235) ,white);
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+#contenido img{
+    margin-top: 2em;
+}
+#imagen{
+    width: 30px;
+    height: 50px;
+}
