@@ -26,6 +26,18 @@ function buscarpersonaje (){
                         <p><strong> birth_year: </strong> ${datos.birth_year}</p>
                         <p><strong> gender: </strong> ${datos.gender}</p>
                         <p><strong> planeta: </strong> ${planetadatos.name}</p>
+                        <p><strong> rotation_period: </strong> ${planetadatos.rotation_period}</p>
+                        <p><strong> orbital_period: </strong> ${planetadatos.orbital_period}</p>
+                        <p><strong> diameter: </strong> ${planetadatos.diameter}</p>
+                        <p><strong> climate: </strong> ${planetadatos.climate}</p>
+                        <p><strong> gravity: </strong> ${planetadatos.gravity}</p>
+                        <p><strong> terrain: </strong> ${planetadatos.terrain}</p>
+                        <p><strong> surface_water: </strong> ${planetadatos.surface_water}</p>
+                        <p><strong> population: </strong> ${planetadatos.population}</p>
+                        
+
+
+
 
 
                         `);
