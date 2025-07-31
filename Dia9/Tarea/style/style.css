@@ -28,11 +28,12 @@ body{
     
     display: flex;
     
-    margin-left: 42%;
+    justify-content: center;
     margin-top: -32em;
 }
 #imagen img {
     width: 210px;
+    
 }
 .nombre{
     display: flex;
