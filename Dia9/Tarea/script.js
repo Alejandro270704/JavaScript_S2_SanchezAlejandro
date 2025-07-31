@@ -11,7 +11,7 @@ function buscarpersonaje (idnuevo){
                 const imagen1=document.getElementById("imagen");
                 imagen1.innerHTML= ` <img src=${datos.sprites.front_default}>`
                 const id = document.getElementById("numero");
-                id.innerHTML=`${datos.id}`;
+                id.innerHTML=`${datos.id} -`;
                 const name =document.getElementById("nombrepokemon");
                 name.innerHTML = `${datos.name}`
                 idpokemon= datos.id

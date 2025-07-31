@@ -46,10 +46,18 @@ body{
     margin-left: -2em;
     margin-top: 3em;
     
+    
 }
 .input input{
     width: 300px;
-    height: 40px;
+    height: 60px;
+    border-radius: 8px;
+    box-shadow: 0 5px #888888;
+    padding: 0 22px;
+    color: #494949;
+    font-size: 20px;
+    
+    
 }
 .botones{
     display: flex;
@@ -61,8 +69,22 @@ body{
 
 }
 .botones button{
-    background-color: gray;
+    background-color: rgb(65, 63, 63);
     color: white;
-    width: 100px;
+    width: 130px;
     height: 40px;
+    font-size: 20px;
+    
+    
+    
 }
+button {
+    cursor: pointer;   
+    box-shadow: 0 5px #494949;
+  }
+  
+  
+  button:active {
+    
+    transform: translateX(-8px);
+  }
