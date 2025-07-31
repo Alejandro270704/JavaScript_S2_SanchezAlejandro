@@ -9,12 +9,20 @@ function buscarpersonaje (idnuevo){
             try {
                 const datos=JSON.parse(xml.responseText);
                 const imagen1=document.getElementById("imagen");
-                imagen1.innerHTML= ` <img src=${datos.sprites.front_default}>`
                 const id = document.getElementById("numero");
                 id.innerHTML=`${datos.id} -`;
+                
                 const name =document.getElementById("nombrepokemon");
                 name.innerHTML = `${datos.name}`
                 idpokemon= datos.id
+                if (personaje  || idnuevo < 649){
+                    imagen1.innerHTML= ` <img src="${datos['sprites']['versions']['generation-v']['black-white']['animated']['front_default']}" style="width: 120px; height: 120px; margin-top: 70px;">`
+                }
+                else if ( personaje  || idnuevo> 649 ){
+                    imagen1.innerHTML= ` <img src=${datos.sprites.front_default}>`;
+                }
+                
+                
             }
             catch(err){
                 console.log(err.message);
@@ -41,3 +49,4 @@ function buscarpersonaje (idnuevo){
             buscarpersonaje(idpokemon+1);
         }
     )
+
