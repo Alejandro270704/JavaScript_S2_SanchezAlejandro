@@ -25,6 +25,7 @@ function buscarpersonaje (idnuevo){
                 } 
                 
                 
+                
             }
             catch(err){
                 console.log(err.message);
