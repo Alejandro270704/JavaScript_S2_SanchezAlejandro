@@ -15,12 +15,14 @@ function buscarpersonaje (idnuevo){
                 const name =document.getElementById("nombrepokemon");
                 name.innerHTML = `${datos.name}`
                 idpokemon= datos.id
-                if (personaje  || idnuevo < 649){
-                    imagen1.innerHTML= ` <img src="${datos['sprites']['versions']['generation-v']['black-white']['animated']['front_default']}" style="width: 120px; height: 120px; margin-top: 70px;">`
-                }
-                else if ( personaje  || idnuevo> 649 ){
-                    imagen1.innerHTML= ` <img src=${datos.sprites.front_default}>`;
-                }
+                const animado = datos.sprites.versions["generation-v"]["black-white"].animated.front_default;
+                const estatico = datos.sprites.front_default;
+
+                if (animado) {
+                    imagen1.innerHTML = `<img src="${animado}" style="width: 120px; height: 120px; margin-top: 70px;">`;
+                } else if (estatico) {
+                    imagen1.innerHTML = `<img src="${estatico}" style="width: 120px; height: 120px; margin-top: 70px;">`;
+                } 
                 
                 
             }
