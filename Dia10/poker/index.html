@@ -19,13 +19,83 @@
         <h1>Menu </h1>
         <a href=""><button >play Blac jack</a></button></a>
         
-        <a href="./instrucciones.html" > <button >Instrucciones</a></button></a>
+         <button onclick="mostrarreglas()">Instrucciones</a></button>
        
         <a href=""><button>Creditos</a></button></a>
         
 
-        
+    
     </div>
+    <div class="instrucciones-1">
+       <div class="todo">
+            <div class="titulo2"><h1>Instrucciones</h1></div>
+            <div class="contenido">
+                
+                <div class="reglas1"><p><span class="text">▶ Objetivo del juego</span>
+                    <br>
+                Obtener una mano con un valor lo más cercano posible a 21 sin pasarse (bust), 
+                y superar el valor de la mano del crupier (dealer).</p>
+                <p><span class="text">▶ Valor de las cartas</span>
+                    <br>
+                Cartas del 2 al 10: valen su número <br>
+
+                Jotas (J), Reinas (Q) y Reyes (K): valen 10 puntos.
+
+                As (A): vale 1 o 11, según lo que más convenga al jugador.</p>
+                <p><span class="text">▶ Participantes</span>
+                    <br>
+                1 crupier (dealer)
+
+                1 o más jugadores
+                <br><span class="text">▶ Como se juega</span>
+                <br>
+                
+
+                Reparto de cartas:
+
+                El crupier reparte 2 cartas a cada jugador.
+
+                Se reparte 2 cartas al crupier, una de ellas boca arriba y otra boca abajo.
+                Turno del jugador:
+
+                Puedes elegir entre
+                Pedir carta (Hit): Recibes otra carta.
+
+                Plantarse (Stand): Te quedas con <span class="correr">tu mano actual.</span> 
+                </p></div>
+                <div class="reglas2"> <p>
+                
+                Dividir (Split): Si tienes dos cartas del mismo valor, puedes dividirlas en dos manos separadas.:
+            
+
+                Si tu mano supera 21, pierdes automáticamente (Bust).
+
+                Turno del crupier:
+
+                Revela su carta oculta.
+
+                Debe pedir carta hasta tener al menos 17 puntos.
+
+                Si se pasa de 21, pierde.
+
+                Comparación:
+
+                Si tú tienes más puntos que el crupier sin pasarte de 21, ganas.
+
+                Si tienes menos puntos, pierdes.
+
+                Si empatan, es un push (empate) </p>
+                <p><span class="text">Blackjack natural</span>
+                Si tus 2 primeras cartas suman 21 (un As + una carta de valor 10), tienes un Blackjack.
+
+                Un Blackjack gana automáticamente, a menos que el crupier también tenga uno.</p>
+            </div>
+            
+            
+            </div>
+        </div>
+    </div>
+    <audio src="../musica/Dave Brubeck, The Dave Brubeck Quartet - Take Five (Audio).mp3" loop id="musicafondo"></audio>
 </body>
 <script src="../script.js"></script>
 </html>
