@@ -1,1 +1,79 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    background-image: url(../img/instrucciones\ 1.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right bottom;
+    overflow: hidden;
+    height: 100%;
 
+    
+    
+    
+}
+@font-face {
+    font-family: letrapoker;
+    src: url(../fonts/CoffeetinInitials-YXJ2.ttf);
+}
+@font-face {
+    font-family: letra2;
+    src: url(../fonts/Roboto-VariableFont_wdth\,wght.ttf);
+}
+@font-face {
+    font-family: letra3;
+    src: url(../fonts/PokerKingsRegular-36K8.ttf);
+}
+.titulo{
+    font-family: letrapoker;
+    display: flex;
+    justify-content: center;
+    margin-top: 3vh;
+    
+}
+.reglas1{
+    font-family: letra2;
+    width: 73vw;
+    margin-top: 5vh;
+    margin-left: 25vw;
+    font-size: 19px;
+    
+}
+.contenido{
+    display: flex;
+    flex-direction: column;
+    
+    
+    
+}
+.reglas2{
+    margin-top: 2vh;
+    font-family: letra2;
+    width: 45vw;
+    font-size: 19px;
+    margin-left: 50vw;
+    
+    
+    
+}
+.text{
+    font-family: letrapoker;
+    font-size: 20px;
+}
+.todo {
+    animation: aparecer 0.6s forwards;
+    opacity: 0;
+}
+@keyframes aparecer{
+    from {
+    opacity: 0;
+    transform: translateY(20px); }
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+}
