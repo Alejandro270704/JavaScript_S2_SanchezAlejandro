@@ -9,11 +9,8 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: right bottom;
-    overflow: hidden;
-    height: 100%;
+    
 
-    
-    
     
 }
 @font-face {
@@ -37,7 +34,7 @@ body{
 }
 .reglas1{
     font-family: letra2;
-    width: 73vw;
+    width: 75vw;
     margin-top: 5vh;
     margin-left: 25vw;
     font-size: 19px;
@@ -71,9 +68,15 @@ body{
 @keyframes aparecer{
     from {
     opacity: 0;
-    transform: translateY(20px); }
+    transform: translateY(20px); 
+    overflow: hidden;}
     to {
     opacity: 1;
     transform: translateY(0);
+    overflow: hidden;
+    
     }
+}
+.correr{
+    margin-left: 4vw;
 }
