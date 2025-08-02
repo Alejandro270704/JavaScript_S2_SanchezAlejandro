@@ -25,3 +25,10 @@ function mostrarreglas() {
     instrucciones.style.display='block';
     instrucciones.classList.add('aparecer2');
 }
+function mostrarmenu(){
+    const instrucciones = document.querySelector('.instrucciones-1');
+    instrucciones.style.display = 'none';
+    const menu =document.querySelector(`.menu`);
+    menu.style.display=`flex`;
+    menu.classList.add(`aparecer`)
+}

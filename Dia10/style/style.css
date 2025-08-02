@@ -127,6 +127,8 @@ a{
     display: flex;
     justify-content: center;
     margin-top: 3vh;
+    font-size: 40px ;
+    position: relative;
     
     
 }
@@ -154,7 +156,7 @@ a{
 
 .instrucciones-1 .text {
     font-family: letrapoker;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .instrucciones-1 .todo {
@@ -185,4 +187,14 @@ a{
 }
 .instrucciones-1 .correr{
     margin-left: 4vw;
+}
+.flecha {
+    position: absolute;
+    left: 25vw;
+    cursor: pointer;
+}
+
+.flecha img {
+    width: 35px;
+    height: auto;
 }
