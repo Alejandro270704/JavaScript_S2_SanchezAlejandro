@@ -199,6 +199,33 @@ function pedircarta(){
                     }
                     verpuntos1=document.getElementById("puntosnumero");
                     verpuntos1.innerHTML=puntosjugador
+                    if (puntosjugador > 21) {
+                        mensaje=document.querySelector(".mensaje");
+                        mensaje.innerHTML = "!Lose!"
+                        pedir.disabled = true;
+                        plantar.disabled=true;
+                        
+                        const carta = dealercartaoculta;
+                        const adivinadealer = document.getElementById("imagendealer");
+                        adivinadealer.removeChild(adivinadealer.lastChild)
+                        adivinadealer.innerHTML += `<img src="${carta.image}" style="width: 110px; height: 130px;">`;
+                        let valor = carta.value;
+                        let puntos = 0;
+                        if (["KING", "QUEEN", "JACK"].includes(valor)) {
+                            puntos = 10;
+                        } else if (valor === "ACE") {
+                            puntos = 11;
+                            Asdealer+=1;
+                        } else {
+                            puntos = parseInt(valor);
+                        }
+                        puntosdealer += puntos;
+                        if (puntosdealer > 21 && Asdealer > 0) {
+                            puntosdealer -= 10;
+                            Asdealer-=1;
+                        }
+                        document.getElementById("puntosdealer").innerHTML = puntosdealer;
+                    }
                     
                 }
                 }
@@ -287,20 +314,20 @@ function turnodealer(){
 function resultado(){
     const mensaje = document.querySelector(".mensaje");
     if (puntosjugador>21){
-        mensaje.innerHTML="¡lose!"
+        mensaje.innerHTML="!lose!"
     }
     else if (puntosdealer>21){
-        mensaje.innerHTML="¡win!"
+        mensaje.innerHTML="'!win!"
     }
     else if (puntosjugador>puntosdealer){
-        mensaje.innerHTML="¡win!"
+        mensaje.innerHTML="!win!"
     }
     else if (puntosdealer>puntosjugador){
-        mensaje.innerHTML="¡lose!"
+        mensaje.innerHTML="!lose!"
 
     }
     else if (puntosjugador===puntosdealer){
-        mensaje.innerHTML="¡empate!"
+        mensaje.innerHTML="!empate!"
     }
 }
 
