@@ -76,6 +76,7 @@ function mostrarmenu3(){
 let puntosjugador=0
 let puntosdealer=0
 let id =null
+
 const botonescrear= document.querySelectorAll(".jugar");
 botonescrear.forEach(boton => {
     boton.addEventListener("click", crearmazo);
@@ -84,6 +85,7 @@ function crearmazo(){
     puntosjugador=0
     puntosdealer=0
     document.getElementById("imagenjugador").innerHTML = "";
+    document.getElementById("puntosnumero").innerHTML = "0";
     const xml=  new XMLHttpRequest();
     const url= `https://deckofcardsapi.com/api/deck/new/shuffle/`;
     xml.open("GET" ,url,true);
@@ -133,6 +135,8 @@ function pedircarta(){
                         puntos=parseInt(valor)
                     }
                     puntosjugador+=puntos
+                    verpuntos1=document.getElementById("puntosnumero");
+                    verpuntos1.innerHTML=puntosjugador
                 }
                 }
                 xmlcarta.send();

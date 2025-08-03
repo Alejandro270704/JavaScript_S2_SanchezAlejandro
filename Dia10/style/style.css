@@ -277,13 +277,17 @@ body {
     margin-top: 2vh;
     animation: aparecer3 0.6s forwards;
 }
-.game-contennido{
+.game-contenido{
     animation: aparecer3 0.6s forwards;
     color: white;
     font-size: 23px;
     margin-left: 5vw;
     font-family: letra3;
 
+}
+#puntosnumero{
+    font-family: letra2;
+    color: black;
 }
 .cartas{
     width: 70vw;
@@ -314,9 +318,6 @@ body {
 }
 .botones button:active{
     transform: translatey(4px);
-}
-.mensaje2{
-    display: flex;
 }
 .titulo-juego .flecha{
     left: 1vw;
