@@ -73,19 +73,22 @@ function mostrarmenu3(){
     menu.classList.add(`aparecer`)
 }
 
-let puntosjugador=0
-let puntosdealer=0
-let id =null
-
+let puntosjugador=0;
+let puntosdealer=0;
+let id =null;
+let Asjugador=0;
 const botonescrear= document.querySelectorAll(".jugar");
 botonescrear.forEach(boton => {
     boton.addEventListener("click", crearmazo);
 });
 function crearmazo(){
-    puntosjugador=0
-    puntosdealer=0
+    puntosjugador=0;
+    puntosdealer=0;
+    Asjugador=0;
     document.getElementById("imagenjugador").innerHTML = "";
     document.getElementById("puntosnumero").innerHTML = "0";
+    document.querySelector(".mensaje").innerHTML = "";
+    pedir.disabled = false;
     const xml=  new XMLHttpRequest();
     const url= `https://deckofcardsapi.com/api/deck/new/shuffle/`;
     xml.open("GET" ,url,true);
@@ -126,17 +129,30 @@ function pedircarta(){
                     }
                     else if (valor==="ACE"){
                         puntos= 11;
-                        if (puntosjugador + puntos > 21) {
-                                puntos = 1;
-                            }
+                        Asjugador+=1;
+                
 
                     }
                     else{
                         puntos=parseInt(valor)
                     }
                     puntosjugador+=puntos
+                    if (puntosjugador>21 && Asjugador>0){
+                        puntosjugador-=10;
+                        Asjugador-=1;
+                    }
                     verpuntos1=document.getElementById("puntosnumero");
                     verpuntos1.innerHTML=puntosjugador
+                    if (puntosjugador > 21) {
+                        mensaje=document.querySelector(".mensaje");
+                        mensaje.innerHTML = "¡Lose!"
+                        pedir.disabled = true;
+                    }
+                    if (puntosjugador === 21){
+                        mensaje=document.querySelector(".mensaje");
+                        mensaje.innerHTML = "¡Wind!"
+                        pedir.disabled = true;
+                    }
                 }
                 }
                 xmlcarta.send();

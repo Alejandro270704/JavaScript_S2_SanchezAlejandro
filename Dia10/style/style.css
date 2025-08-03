@@ -300,11 +300,14 @@ body {
     
 }
 .mensaje{
-    display: none;
+    display: flex;
     justify-content: center;
     color: gold;
     font-size: 35px;
     font-family: letrapoker;
+    position: absolute;
+    margin-left: 46vw;
+    margin-top: -9vh;
     
     
 }
