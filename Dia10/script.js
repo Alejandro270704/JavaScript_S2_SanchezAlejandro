@@ -199,16 +199,7 @@ function pedircarta(){
                     }
                     verpuntos1=document.getElementById("puntosnumero");
                     verpuntos1.innerHTML=puntosjugador
-                    if (puntosjugador > 21) {
-                        mensaje=document.querySelector(".mensaje");
-                        mensaje.innerHTML = "¡Lose!"
-                        pedir.disabled = true;
-                    }
-                    if (puntosjugador === 21){
-                        mensaje=document.querySelector(".mensaje");
-                        mensaje.innerHTML = "¡Win!"
-                        pedir.disabled = true;
-                    }
+                    
                 }
                 }
                 xmlcarta.send();
@@ -280,9 +271,11 @@ function turnodealer(){
                         resultado();
                         
                     }
+                    
+                }
+                
                 }
                 xmlcarta.send();
-                }
         }
         else {
             clearInterval(turno)
@@ -290,6 +283,25 @@ function turnodealer(){
         }
     },1000
 );
+}
+function resultado(){
+    const mensaje = document.querySelector(".mensaje");
+    if (puntosjugador>21){
+        mensaje.innerHTML="¡lose!"
+    }
+    else if (puntosdealer>21){
+        mensaje.innerHTML="¡win!"
+    }
+    else if (puntosjugador>puntosdealer){
+        mensaje.innerHTML="¡win!"
+    }
+    else if (puntosdealer>puntosjugador){
+        mensaje.innerHTML="¡lose!"
+
+    }
+    else if (puntosjugador===puntosdealer){
+        mensaje.innerHTML="¡empate!"
+    }
 }
 
         
