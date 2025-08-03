@@ -182,9 +182,7 @@ body {
     transform: translateY(0);
     }
 }
-.instrucciones-1 .correr{
-    margin-left: 4vw;
-}
+
 .flecha {
     position: absolute;
     left: 25vw;
@@ -268,4 +266,59 @@ body {
     animation: aparecer2 0.6s forwards;
     opacity: 0;
     overflow: hidden;
+    flex-direction: column
+}
+.titulo-juego{
+    font-family: letrapoker;
+    display: flex;
+    justify-content: center;
+    font-size: 38px;
+    color: white;
+    margin-top: 2vh;
+    animation: aparecer3 0.6s forwards;
+}
+.game-contennido{
+    animation: aparecer3 0.6s forwards;
+    color: white;
+    font-size: 23px;
+    margin-left: 5vw;
+    font-family: letra3;
+
+}
+.cartas{
+    width: 70vw;
+    height: 35vh;
+}
+.botones{
+    display: flex;
+    justify-content: center;
+    gap: 15vw;
+    
+}
+.mensaje{
+    display: none;
+    justify-content: center;
+    color: gold;
+    font-size: 35px;
+    font-family: letrapoker;
+    
+    
+}
+.botones button{
+    font-family: letra3;
+    font-size: 20px;
+    cursor: pointer;   
+    box-shadow: 0 5px #494949;
+    animation: aparecer3 0.6s forwards;
+    
+}
+.botones button:active{
+    transform: translatey(4px);
+}
+.mensaje2{
+    display: none;
+}
+.titulo-juego .flecha{
+    left: 1vw;
+    background-color: rgb(188, 0, 226);
 }

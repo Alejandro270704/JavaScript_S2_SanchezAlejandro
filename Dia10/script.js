@@ -64,3 +64,11 @@ function mostrargame(){
     juego.style.display.add(`aparecer2`);
 
 }
+function mostrarmenu3(){
+    const juego=document.querySelector(`.juego`);
+    juego.style.display=`none`
+
+    const menu =document.querySelector(`.menu`);
+    menu.style.display=`flex`;
+    menu.classList.add(`aparecer`)
+}
