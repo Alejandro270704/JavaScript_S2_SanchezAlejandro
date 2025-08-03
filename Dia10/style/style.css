@@ -288,6 +288,12 @@ body {
 #puntosnumero{
     font-family: letra2;
     color: black;
+    font-size: 30px;
+}
+#puntosdealer{
+    font-family: letra2;
+    color: white;
+    font-size: 30px;
 }
 .cartas{
     width: 70vw;

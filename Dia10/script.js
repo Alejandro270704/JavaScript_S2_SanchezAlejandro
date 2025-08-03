@@ -95,7 +95,7 @@ function crearmazo(){
     document.querySelector(".mensaje").innerHTML = "";
     document.getElementById("puntosdealer").innerHTML = "0";
     pedir.disabled = false;
-    plantarse.disabled=false;
+    plantar.disabled = false;
     const xml=  new XMLHttpRequest();
     const url= `https://deckofcardsapi.com/api/deck/new/shuffle/`;
     xml.open("GET" ,url,true);
@@ -120,7 +120,7 @@ function crearmazo(){
                             puntos = 10;
                         } else if (valor === "ACE") {
                             puntos = 11;
-                            Asjugador++;
+                            Asjugador+=1;
                         } else {
                             puntos = parseInt(valor);
                         }
@@ -132,7 +132,7 @@ function crearmazo(){
                         Asjugador-=1;
                     }
                     document.getElementById("puntosnumero").innerHTML = puntosjugador;
-                     const cartaver = cartas[2];
+                    const cartaver = cartas[2];
                     document.getElementById("imagendealer").innerHTML += `<img src="${cartaver.image}" style="width: 110px; height: 130px;">`;
 
                     let valor = cartaver.value;
@@ -212,6 +212,33 @@ function pedircarta(){
                 }
                 }
                 xmlcarta.send();
+
+}
+const plantar=document.getElementById("plantarse")
+plantar.addEventListener("click",plantarse)
+function plantarse (){
+    pedir.disabled=true
+    plantar.disabled = true;
+    const carta = dealercartaoculta;
+    const adivinadealer = document.getElementById("imagendealer");
+    adivinadealer.removeChild(adivinadealer.lastChild)
+    adivinadealer.innerHTML += `<img src="${carta.image}" style="width: 110px; height: 130px;">`;
+    let valor = carta.value;
+    let puntos = 0;
+     if (["KING", "QUEEN", "JACK"].includes(valor)) {
+        puntos = 10;
+    } else if (valor === "ACE") {
+        puntos = 11;
+        Asdealer+=1;
+    } else {
+        puntos = parseInt(valor);
+    }
+    puntosdealer += puntos;
+    if (puntosdealer > 21 && Asdealer > 0) {
+        puntosdealer -= 10;
+        Asdealer-=1;
+    }
+    document.getElementById("puntosdealer").innerHTML = puntosdealer;
 
 }
 
