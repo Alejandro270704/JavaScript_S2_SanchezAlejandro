@@ -51,3 +51,16 @@ function mostrarmenu2(){
     menu.style.display=`flex`;
     menu.classList.add(`aparecer`)
 }
+function mostrargame(){
+    document.querySelector('.menu').style.display='none';
+    
+    const contenido = document.querySelector('.contenido');
+    contenido.style.display = 'none';
+    contenido.style.opacity = 0;
+    contenido.style.backgroundImage = 'none';
+
+    const juego= document.querySelector(`.juego`);
+    juego.style.display=`block`;
+    juego.style.display.add(`aparecer2`);
+
+}
