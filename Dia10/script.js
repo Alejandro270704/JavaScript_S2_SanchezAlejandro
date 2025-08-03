@@ -77,6 +77,8 @@ let puntosjugador=0;
 let puntosdealer=0;
 let id =null;
 let Asjugador=0;
+let Asdealer = 0;
+let dealercarta = null;
 const botonescrear= document.querySelectorAll(".jugar");
 botonescrear.forEach(boton => {
     boton.addEventListener("click", crearmazo);
@@ -85,10 +87,15 @@ function crearmazo(){
     puntosjugador=0;
     puntosdealer=0;
     Asjugador=0;
+    Asdealer=0;
+    dealercartaoculta = null;
     document.getElementById("imagenjugador").innerHTML = "";
+    document.getElementById(`imagendealer`).innerHTML ="";
     document.getElementById("puntosnumero").innerHTML = "0";
     document.querySelector(".mensaje").innerHTML = "";
+    document.getElementById("puntosdealer").innerHTML = "0";
     pedir.disabled = false;
+    plantarse.disabled=false;
     const xml=  new XMLHttpRequest();
     const url= `https://deckofcardsapi.com/api/deck/new/shuffle/`;
     xml.open("GET" ,url,true);
@@ -97,19 +104,68 @@ function crearmazo(){
             try {
                 const datos=JSON.parse(xml.responseText);
                 id= datos.deck_id
-                
-                
+                const xmlcartas = new XMLHttpRequest();
+                const urlcartas = `https://deckofcardsapi.com/api/deck/${id}/draw/?count=4`;
+                xmlcartas.open("GET", urlcartas, true);
+                xmlcartas.onreadystatechange = function () {
+                    if (xmlcartas.readyState === 4 && xmlcartas.status === 200) {
+                    const datoscartas = JSON.parse(xmlcartas.responseText);
+                    const cartas = datoscartas.cards;
+                    for (let i = 0; i < 2; i++) {
+                        const carta = cartas[i];
+                        document.getElementById("imagenjugador").innerHTML += `<img src="${carta.image}" style="width: 110px; height: 130px;">`;
+                        let valor = carta.value;
+                        let puntos = 0;
+                        if (["KING", "QUEEN", "JACK"].includes(valor)) {
+                            puntos = 10;
+                        } else if (valor === "ACE") {
+                            puntos = 11;
+                            Asjugador++;
+                        } else {
+                            puntos = parseInt(valor);
+                        }
+                        puntosjugador += puntos;
+                    }   
+
+                    if (puntosjugador > 21 && Asjugador > 0) {
+                        puntosjugador -= 10;
+                        Asjugador-=1;
+                    }
+                    document.getElementById("puntosnumero").innerHTML = puntosjugador;
+                     const cartaver = cartas[2];
+                    document.getElementById("imagendealer").innerHTML += `<img src="${cartaver.image}" style="width: 110px; height: 130px;">`;
+
+                    let valor = cartaver.value;
+                    let puntos = 0;
+                    if (["KING", "QUEEN", "JACK"].includes(valor)) {
+                        puntos = 10;
+                    } else if (valor === "ACE") {
+                        puntos = 11;
+                        Asdealer+=1;
+                    } else {
+                        puntos = parseInt(valor);
+                    }
+                    puntosdealer += puntos;
+                    dealercartaoculta = cartas[3];
+                    document.getElementById("imagendealer").innerHTML += `<img src="../img/adivina.svg" style="width: 110px; height: 130px;">`;
+
+                    document.getElementById("puntosdealer").innerHTML = puntosdealer;
+                    }
+                     
+                }
+                xmlcartas.send();
+            
             }
             catch(err){
                 console.log(err.message);
             }
             
+            
         }
         
-    }
+    }  
     xml.send()
-    
-}    
+}
 const pedir= document.getElementById("pedir");
 pedir.addEventListener ("click",pedircarta);
 function pedircarta(){
@@ -150,15 +206,16 @@ function pedircarta(){
                     }
                     if (puntosjugador === 21){
                         mensaje=document.querySelector(".mensaje");
-                        mensaje.innerHTML = "¡Wind!"
+                        mensaje.innerHTML = "¡Win!"
                         pedir.disabled = true;
                     }
                 }
                 }
                 xmlcarta.send();
 
-            }
-            
+}
+
+
         
     
     
