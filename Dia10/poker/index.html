@@ -17,7 +17,7 @@
     <div class="menu">
         
         <h1>Menu </h1>
-        <button onclick="mostrargame()">play Blac jack</a></button>
+        <button onclick="mostrargame()" id="jugar">play Blac jack</a></button>
         
         <button onclick="mostrarreglas()">Instrucciones</a></button>
        
@@ -142,15 +142,15 @@
             Black-Jack</div>
         <div class="game-contennido">
             <p>puntos-Dealer: </p>
-            <div class="cartas"><img src="" alt=""></div>
+            <div class="cartas"></div>
             <p>puntos-Jugador:</p>
-            <div class="cartas"><img src="" alt=""></div>
+            <div class="cartas"id="imagenjugador"></div>
         </div>
         <div class="mensaje">""</div>
         <div class="botones">
-            <button>Pedir Carta</button>
-            <button class="mensaje2">new game</button>
-            <button>Plantarse</button>
+            <button id="pedir">Pedir Carta</button>
+            <button class="mensaje2" id="jugar">new game</button>
+            <button id="plantarse">Plantarse</button>
         </div>
     </div>
     <audio src="../musica/Dave Brubeck, The Dave Brubeck Quartet - Take Five (Audio).mp3" loop id="musicafondo"></audio>

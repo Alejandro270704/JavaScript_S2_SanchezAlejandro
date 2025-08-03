@@ -72,3 +72,69 @@ function mostrarmenu3(){
     menu.style.display=`flex`;
     menu.classList.add(`aparecer`)
 }
+let puntosjugador=0
+let puntosdealer=0
+document.getElementById("imagenjugador").innerHTML = "";
+let id =null
+const crear= document.getElementById("jugar");
+crear.addEventListener ("click",crearmazo);
+function crearmazo(){
+    const xml=  new XMLHttpRequest();
+    const url= `https://deckofcardsapi.com/api/deck/new/shuffle/`;
+    xml.open("GET" ,url,true);
+    xml.onreadystatechange=function(){ 
+        if (xml.readyState === 4 && xml.status === 200){
+            try {
+                const datos=JSON.parse(xml.responseText);
+                id= datos.deck_id
+                
+                
+            }
+            catch(err){
+                console.log(err.message);
+            }
+            
+        }
+        
+    }
+    xml.send()
+    
+}    
+const pedir= document.getElementById("pedir");
+pedir.addEventListener ("click",pedircarta);
+function pedircarta(){
+                const xmlcarta=  new XMLHttpRequest();
+                const urlcarta=`https://deckofcardsapi.com/api/deck/${id}/draw/?count=1`
+                xmlcarta.open("GET" ,urlcarta,true);
+                xmlcarta.onreadystatechange=function(){ 
+                if (xmlcarta.readyState === 4 && xmlcarta.status === 200){
+                    const datoscarta=JSON.parse(xmlcarta.responseText);
+                    const carta=datoscarta.cards[0];
+                    const imagenjugador=document.getElementById("imagenjugador");
+                    imagenjugador.innerHTML+=  `<img src="${carta.image}" style="width: 100px; height: 120px;" >`
+                    valor=carta.value
+                    puntos=0
+                    if (["KING","QUEEN" ,"JACK"].includes(valor)){
+                        puntos=10;
+                    }
+                    else if (valor==="ACE"){
+                        puntos= 11;
+                        if (puntosjugador + puntos > 21) {
+                                puntos = 1;
+                            }
+
+                    }
+                    else{
+                        puntos=parseInt(valor)
+                    }
+                    puntosjugador+=puntos
+                }
+                }
+                xmlcarta.send();
+
+            }
+            
+        
+    
+    
+
