@@ -72,13 +72,18 @@ function mostrarmenu3(){
     menu.style.display=`flex`;
     menu.classList.add(`aparecer`)
 }
+
 let puntosjugador=0
 let puntosdealer=0
-document.getElementById("imagenjugador").innerHTML = "";
 let id =null
-const crear= document.getElementById("jugar");
-crear.addEventListener ("click",crearmazo);
+const botonescrear= document.querySelectorAll(".jugar");
+botonescrear.forEach(boton => {
+    boton.addEventListener("click", crearmazo);
+});
 function crearmazo(){
+    puntosjugador=0
+    puntosdealer=0
+    document.getElementById("imagenjugador").innerHTML = "";
     const xml=  new XMLHttpRequest();
     const url= `https://deckofcardsapi.com/api/deck/new/shuffle/`;
     xml.open("GET" ,url,true);

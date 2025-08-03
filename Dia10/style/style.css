@@ -316,7 +316,7 @@ body {
     transform: translatey(4px);
 }
 .mensaje2{
-    display: none;
+    display: flex;
 }
 .titulo-juego .flecha{
     left: 1vw;
