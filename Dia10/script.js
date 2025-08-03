@@ -239,11 +239,60 @@ function plantarse (){
         Asdealer-=1;
     }
     document.getElementById("puntosdealer").innerHTML = puntosdealer;
+    turnodealer();
 
 }
 
+function turnodealer(){
+    const turno= setInterval(()=>{
+        if (puntosdealer<17 ){
+            const xmlcarta=  new XMLHttpRequest();
+                const urlcarta=`https://deckofcardsapi.com/api/deck/${id}/draw/?count=1`
+                xmlcarta.open("GET" ,urlcarta,true);
+                xmlcarta.onreadystatechange=function(){ 
+                if (xmlcarta.readyState === 4 && xmlcarta.status === 200){
+                    const datoscarta=JSON.parse(xmlcarta.responseText);
+                    const carta=datoscarta.cards[0];
+                    const imagendealer=document.getElementById("imagendealer");
+                    imagendealer.innerHTML+=  `<img src="${carta.image}" style="width: 110px; height: 130px;" >`
+                    let valor=carta.value
+                    let puntos=0
+                    if (["KING","QUEEN" ,"JACK"].includes(valor)){
+                        puntos=10;
+                    }
+                    else if (valor==="ACE"){
+                        puntos= 11;
+                        Asdealer+=1
+                
+
+                    }
+                    else{
+                        puntos=parseInt(valor)
+                    }
+                    puntosdealer+=puntos
+                    if (puntosdealer>21 && Asdealer>0){
+                       puntosdealer -= 10;
+                       Asdealer-=1
+                    }
+                    document.getElementById("puntosdealer").innerHTML = puntosdealer;
+                     if (puntosdealer >= 17) {
+                        clearInterval(turno);
+                        resultado();
+                        
+                    }
+                }
+                xmlcarta.send();
+                }
+        }
+        else {
+            clearInterval(turno)
+            resultado()
+        }
+    },1000
+);
+}
 
         
     
-    
+
 
