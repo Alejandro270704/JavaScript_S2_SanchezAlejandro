@@ -113,7 +113,7 @@ function crearmazo(){
                     const cartas = datoscartas.cards;
                     for (let i = 0; i < 2; i++) {
                         const carta = cartas[i];
-                        document.getElementById("imagenjugador").innerHTML += `<img src="${carta.image}" style="width: 110px; height: 130px;">`;
+                        document.getElementById("imagenjugador").innerHTML += `<img src="${carta.image}" style="width: 110px; height: 130px; animation: aparecer3 0.6s ease-out;">`;
                         let valor = carta.value;
                         let puntos = 0;
                         if (["KING", "QUEEN", "JACK"].includes(valor)) {
@@ -133,7 +133,7 @@ function crearmazo(){
                     }
                     document.getElementById("puntosnumero").innerHTML = puntosjugador;
                     const cartaver = cartas[2];
-                    document.getElementById("imagendealer").innerHTML += `<img src="${cartaver.image}" style="width: 110px; height: 130px;">`;
+                    document.getElementById("imagendealer").innerHTML += `<img src="${cartaver.image}" style="width: 110px; height: 130px; animation: aparecer3 0.6s ease-out;">`;
 
                     let valor = cartaver.value;
                     let puntos = 0;
@@ -147,7 +147,7 @@ function crearmazo(){
                     }
                     puntosdealer += puntos;
                     dealercartaoculta = cartas[3];
-                    document.getElementById("imagendealer").innerHTML += `<img src="../img/adivina.svg" style="width: 110px; height: 130px;">`;
+                    document.getElementById("imagendealer").innerHTML += `<img src="../img/adivina.svg" style="width: 110px; height: 130px;animation: aparecer3 0.6s ease-out;">`;
 
                     document.getElementById("puntosdealer").innerHTML = puntosdealer;
                     }
@@ -177,7 +177,14 @@ function pedircarta(){
                     const datoscarta=JSON.parse(xmlcarta.responseText);
                     const carta=datoscarta.cards[0];
                     const imagenjugador=document.getElementById("imagenjugador");
-                    imagenjugador.innerHTML+=  `<img src="${carta.image}" style="width: 100px; height: 120px;" >`
+                    
+                    const nuevaCarta = document.createElement("img");
+                    nuevaCarta.src = carta.image;
+                    nuevaCarta.style.width = "110px";
+                    nuevaCarta.style.height = "130px";
+                    nuevaCarta.style.animation = "aparecer3 0.6s ease-out";
+
+                    imagenjugador.appendChild(nuevaCarta);
                     valor=carta.value
                     puntos=0
                     if (["KING","QUEEN" ,"JACK"].includes(valor)){
@@ -208,7 +215,12 @@ function pedircarta(){
                         const carta = dealercartaoculta;
                         const adivinadealer = document.getElementById("imagendealer");
                         adivinadealer.removeChild(adivinadealer.lastChild)
-                        adivinadealer.innerHTML += `<img src="${carta.image}" style="width: 110px; height: 130px;">`;
+                        const nuevacarta = document.createElement("img");
+                        nuevacarta.src = carta.image;
+                        nuevacarta.style.width = "110px";
+                        nuevacarta.style.height = "130px";
+                        nuevacarta.style.animation = "aparecer3 0.6s ease-out";
+                        adivinadealer.appendChild(nuevacarta);
                         let valor = carta.value;
                         let puntos = 0;
                         if (["KING", "QUEEN", "JACK"].includes(valor)) {
@@ -240,7 +252,12 @@ function plantarse (){
     const carta = dealercartaoculta;
     const adivinadealer = document.getElementById("imagendealer");
     adivinadealer.removeChild(adivinadealer.lastChild)
-    adivinadealer.innerHTML += `<img src="${carta.image}" style="width: 110px; height: 130px;">`;
+    const nuevacarta = document.createElement("img");
+    nuevacarta.src = carta.image;
+    nuevacarta.style.width = "110px";
+    nuevacarta.style.height = "130px";
+    nuevacarta.style.animation = "aparecer3 0.6s ease-out";
+    adivinadealer.appendChild(nuevacarta);
     let valor = carta.value;
     let puntos = 0;
      if (["KING", "QUEEN", "JACK"].includes(valor)) {
@@ -272,7 +289,13 @@ function turnodealer(){
                     const datoscarta=JSON.parse(xmlcarta.responseText);
                     const carta=datoscarta.cards[0];
                     const imagendealer=document.getElementById("imagendealer");
-                    imagendealer.innerHTML+=  `<img src="${carta.image}" style="width: 110px; height: 130px;" >`
+                    const nuevacarta = document.createElement("img");
+                    nuevacarta.src = carta.image;
+                    nuevacarta.style.width = "110px";
+                    nuevacarta.style.height = "130px";
+                    nuevacarta.style.animation = "aparecer3 0.6s ease-out";
+                    imagendealer.appendChild(nuevacarta);
+
                     let valor=carta.value
                     let puntos=0
                     if (["KING","QUEEN" ,"JACK"].includes(valor)){
