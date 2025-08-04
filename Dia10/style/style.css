@@ -337,31 +337,34 @@ body {
 }
 .titulo-juego .flecha{
     left: 1vw;
-    background-color: rgb(188, 0, 226);
+    box-shadow: 0 5px #b500fd;
+    background: #ffffffa8;
 }
 @media only screen and (max-width: 932px) {
     .botones{
-        margin-top: 22vh;
+        margin-top: 10vh;
         margin-right: 6vh;
         gap: 2vw;
         
     }
     .cartas{
-        height: 20vh;
+        height: 15vh;
+        margin: 5vh 0vw;
     }
     body{
         background-image: url(../img/celular.jpg);
         background-size:cover;
         background-position: center;
-        display: flex;
         justify-content: center;    
         text-align: center;    
+        min-height: 100vh;
+        overflow-y: auto;
                     
         
     }
     .titulo{
         text-align: center;
-        
+        margin-top: 20vh;
         
     }
     .entrar{
@@ -373,17 +376,105 @@ body {
         margin-left: -20vw;
     }
     .instrucciones-1{
+        background-image: url(../img/intruccionescel.png);
         text-align: center;
         background-size: cover;
         background-position: left;
-        height: 100vh;
+        min-height: 100vh;
+        height: auto;
+        overflow-y: auto;
+        
+        
+        
+
     }
     .flecha {
         position: absolute;
         left: 1vw;
         cursor: pointer;
         background: rgba(0, 0, 0, 0.438);
+        
+        
     }
+    .instrucciones-1 .contenido {
+    background: rgba(3, 3, 3, 0.418);
+    margin: 5vh auto; 
+    padding-bottom: 15vh;
+    color: white;
+    overflow-y: visible;
+    
+    text-shadow: 1px 1px 20px black,
+                 1px 1px 20px black,
+                 1px 1px 20px black;
+    width: 90%;
+    font-size: 25px;
+    
+    }
+    .instrucciones-1 .reglas1,
+    .instrucciones-1 .reglas2 {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        width: 90%;
+        height: auto;
+        
+        
+        
+
+    }
+    
+    
+    .texto1{
+        text-shadow: 1px 1px 20px black,
+                    1px 1px 20px black,
+                    1px 1px 20px black;
+                    
+    }
+    .creditos{
+        background-image: url(../img/creditoscelu.png);
+        width: 100%;
+        background-position: center;
+        text-shadow: 1px 1px 20px black,
+                    1px 1px 20px black,
+                    1px 1px 20px black;
+    }
+    .todo2{
+        text-shadow: 1px 2px 20px black,
+                    1px 2px 20px black,
+                    1px 2px 20px black;
+        background: rgba(3, 3, 3, 0.418);
+        width: 90%;
+    }
+    .juego{
+        background-image: url(../img/juegocel.png);
+        width: 100%;
+        background-position: center;
+        height: auto;
+        overflow: visible;
+        
+
+    }
+    .game-contenido{
+        margin-top: 6vh;
+        
+        
+    }
+    #puntosnumero{
+        color: white;
+        margin-right: 40vw;
+    }
+    #puntosdealer{
+        margin-right: 40vw;
+    }
+    .titulo2{
+        text-shadow: 1px 2px 20px black,
+                    1px 2px 20px black,
+                    1px 2px 20px black;
+        color: white;
+    }
+   
+    
+
     
     
     
