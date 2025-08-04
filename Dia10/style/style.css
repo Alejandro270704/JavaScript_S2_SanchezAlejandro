@@ -22,10 +22,16 @@ body {
     background-size: cover;
     background-position: right bottom;
     
+    
+    
 }
 .contenido{
     display: flex;
     flex-direction: column;
+    text-shadow: 1px 1px 10px black,
+                    1px 1px 10px black,
+                    1px 1px 10px black;
+   
 }
 .titulo {
     font-family: letrapoker;
@@ -141,6 +147,8 @@ body {
 .instrucciones-1 .contenido {
     display: flex;
     flex-direction: column;
+    
+    text-shadow: none;
 }
 
 .instrucciones-1 .reglas2 {
@@ -169,9 +177,7 @@ body {
     opacity: 1;
     }
 }
-.instrucciones-1 .correr{
-    margin-left: 4vw;
-}
+
 @keyframes aparecer3 {
     from {
     opacity: 0;
@@ -333,7 +339,7 @@ body {
     left: 1vw;
     background-color: rgb(188, 0, 226);
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 932px) {
     .botones{
         margin-top: 22vh;
         margin-right: 6vh;
@@ -343,4 +349,43 @@ body {
     .cartas{
         height: 20vh;
     }
+    body{
+        background-image: url(../img/celular.jpg);
+        background-size:cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;    
+        text-align: center;    
+                    
+        
+    }
+    .titulo{
+        text-align: center;
+        
+        
+    }
+    .entrar{
+        margin-top: 13vh;
+        margin-left: 0;
+        
+    }
+    .menu{
+        margin-left: -20vw;
+    }
+    .instrucciones-1{
+        text-align: center;
+        background-size: cover;
+        background-position: left;
+        height: 100vh;
+    }
+    .flecha {
+        position: absolute;
+        left: 1vw;
+        cursor: pointer;
+        background: rgba(0, 0, 0, 0.438);
+    }
+    
+    
+    
+    
 }
