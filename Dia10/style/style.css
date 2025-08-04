@@ -333,3 +333,14 @@ body {
     left: 1vw;
     background-color: rgb(188, 0, 226);
 }
+@media only screen and (max-width: 768px) {
+    .botones{
+        margin-top: 22vh;
+        margin-right: 6vh;
+        gap: 2vw;
+        
+    }
+    .cartas{
+        height: 20vh;
+    }
+}
