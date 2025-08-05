@@ -342,14 +342,24 @@ body {
 }
 @media only screen and (max-width: 932px) {
     .botones{
-        margin-top: 10vh;
-        margin-right: 6vh;
-        gap: 2vw;
         
+        display: flex;
+        justify-content: center;
+        margin-top: 5vh;
+        flex-wrap: wrap;
+        padding: 5vw;
     }
     .cartas{
-        height: 15vh;
-        margin: 5vh 0vw;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;  
+        gap: 0.5vw;           
+        width: fit-content; 
+        height: fit-content;
+        margin: 0vh auto;
+        min-height: 20vh;
+
     }
     body{
         background-image: url(../img/celular.jpg);
@@ -364,11 +374,11 @@ body {
     }
     .titulo{
         text-align: center;
-        margin-top: 20vh;
+        margin-top: 30vh;
         
     }
     .entrar{
-        margin-top: 13vh;
+        margin-top: 8vh;
         margin-left: 0;
         
     }
@@ -448,10 +458,13 @@ body {
     .juego{
         background-image: url(../img/juegocel.png);
         width: 100%;
+        
+        flex-direction: column;
+        background-size: cover;
         background-position: center;
         height: auto;
-        overflow: visible;
-        
+        overflow-y: auto;
+        padding-bottom: 20vh;
 
     }
     .game-contenido{
@@ -461,10 +474,10 @@ body {
     }
     #puntosnumero{
         color: white;
-        margin-right: 40vw;
+        margin-right: 0;
     }
     #puntosdealer{
-        margin-right: 40vw;
+        margin-right: 0;
     }
     .titulo2{
         text-shadow: 1px 2px 20px black,
@@ -472,11 +485,21 @@ body {
                     1px 2px 20px black;
         color: white;
     }
-   
+    #imagenjugador,
+    #imagendealer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    }
+    .mensaje{
+        margin-top: 4vh;
+        margin-left: 37vw;
+    }
+    p {
+    margin: 0;
+    padding: 0;
+    }
     
 
-    
-    
-    
-    
 }
