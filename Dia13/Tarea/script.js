@@ -10,18 +10,23 @@ function buscarpersonaje (){
             try {
                 const datos=JSON.parse(xml.responseText);
                 const resultado=document.getElementById("resultado");
-                const imagen=document.getElementById("imagen")
+                resultado.innerHTML=""
                 if (datos.results && datos.results.length>0) {
                     datos.results.forEach(personaje => {
                         resultado.innerHTML+= `
-                        name: ${personaje.name}<br>
-                        poderes: <br>
+                        <div class="col-md-4 mb-4">
+                        <div class="card h-100 bg-dark text-white">
+                        <img src="${personaje.image.url}" class="card-img-top">
+                        <h1 class="card-title">${personaje.name}</h1>
+                        Poderes:<br>
                         inteligencia: ${personaje.powerstats.intelligence}<br>
                         fuerza: ${personaje.powerstats.strength}<br>
                         velocidad: ${personaje.powerstats.speed}<br>
-                        poder: ${personaje.powerstats.power}<br>
-                        <img src="${personaje.image.url}" style="width: 130px; height: 170px; margin: 1vh;">
-                `}
+                        poder: ${personaje.powerstats.power}
+                        </div>
+                        </div>
+                    
+                    `;}
                     
                 )};
                 }
