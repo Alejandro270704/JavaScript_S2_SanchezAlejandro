@@ -87,9 +87,11 @@ button{
     width: 50px;
     background-color: white;
     border-radius: 100%;
+    
 }
 .botones {
     display: flex;
+    cursor: pointer;
 }
 .infoText p{
     margin-top: 10px;

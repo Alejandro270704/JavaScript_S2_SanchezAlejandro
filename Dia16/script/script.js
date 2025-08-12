@@ -2,8 +2,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     const datosContenedor = document.querySelector('.opciones');
     const taskInput = document.getElementById('taskInput');
     const addTaskButton = document.getElementById('addTaskButton');
-    const addTaskDelete = document.getElementById('.eliminado');
-
+    
     async function fetchData(){
         const res =  await fetch('https://66df3340de4426916ee3dd7e.mockapi.io/tareas',{
             method: 'GET',
@@ -27,12 +26,44 @@ document.addEventListener('DOMContentLoaded',()=>{
                 'Content-Type':'application/json'
             },
             body:JSON.stringify({
-                task,status:'On hold'
+                task,status: 'On hold'
             })
         });
         taskInput.value='';
         const data = await fetchData();
         displayCapsula(data);
+    }
+
+    async function deleteTask(id){
+        await fetch(`https://66df3340de4426916ee3dd7e.mockapi.io/tareas/${id}`,{
+            method: 'DELETE',
+            headers :{
+                'Content-Type':'application/json'
+            },
+            
+        });
+        const data = await fetchData();
+        displayCapsula(data);
+    }
+    async function cambioestado(id) {
+        const res = await fetch(`https://66df3340de4426916ee3dd7e.mockapi.io/tareas/${id}`);
+        const taskactual = await res.json();
+        
+        await fetch(`https://66df3340de4426916ee3dd7e.mockapi.io/tareas/${id}`,{
+            method: 'PUT',
+            headers :{
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify({ 
+                task: taskactual.task,
+                status: 'ready' })
+            
+            
+            
+        });
+        const data = await fetchData();
+        displayCapsula(data);
+        
     }
 
    
@@ -72,6 +103,10 @@ document.addEventListener('DOMContentLoaded',()=>{
             </div>`
             }
             datosContenedor.appendChild(capDiv);
+            const botoneliminar = capDiv.querySelector('.eliminado, .eliminadoNegativo');
+            botoneliminar.addEventListener('click', () => deleteTask(cap.id));
+            const botonbien = capDiv.querySelector('.terminado, .terminadoNegativo');
+            botonbien.addEventListener('click', () => cambioestado(cap.id));
         });
     }
     fetchData().then(data =>{
@@ -79,20 +114,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     
     });
 
-    async function delateTask(){
-        await fetch('https://66df3340de4426916ee3dd7e.mockapi.io/tareas/7',{
-            method: 'DELETE',
-            headers :{
-                'Content-Type':'application/json'
-            },
-            
-        });
-        taskInput.value='';
-        const data = await fetchData();
-        displayCapsula(data);
-    }
-
-    addTaskButton.addEventListener('click',addNewTask);
-    addTaskDelete.addEventListener('click',delateTask);
+    addTaskButton.addEventListener('click', addNewTask);
     
 });
