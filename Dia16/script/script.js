@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     const addTaskButton = document.getElementById('addTaskButton');
     
     async function fetchData(){
-        const res =  await fetch('https://66df3340de4426916ee3dd7e.mockapi.io/tareas',{
+        const res =  await fetch('https://689a16bffed141b96ba1d24e.mockapi.io/api/tareas/Tareas',{
             method: 'GET',
             headers :{
                 'Content-Type':'application/json'
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         const task = taskInput.value;
         console.log(task);
         if (task.trim()==='') return;
-        await fetch('https://66df3340de4426916ee3dd7e.mockapi.io/tareas',{
+        await fetch('https://689a16bffed141b96ba1d24e.mockapi.io/api/tareas/Tareas',{
             method: 'POST',
             headers :{
                 'Content-Type':'application/json'
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     }
 
     async function deleteTask(id){
-        await fetch(`https://66df3340de4426916ee3dd7e.mockapi.io/tareas/${id}`,{
+        await fetch(`https://689a16bffed141b96ba1d24e.mockapi.io/api/tareas/Tareas/${id}`,{
             method: 'DELETE',
             headers :{
                 'Content-Type':'application/json'
@@ -46,10 +46,10 @@ document.addEventListener('DOMContentLoaded',()=>{
         displayCapsula(data);
     }
     async function cambioestado(id) {
-        const res = await fetch(`https://66df3340de4426916ee3dd7e.mockapi.io/tareas/${id}`);
+        const res = await fetch(`https://689a16bffed141b96ba1d24e.mockapi.io/api/tareas/Tareas/${id}`);
         const taskactual = await res.json();
         
-        await fetch(`https://66df3340de4426916ee3dd7e.mockapi.io/tareas/${id}`,{
+        await fetch(`https://689a16bffed141b96ba1d24e.mockapi.io/api/tareas/Tareas/${id}`,{
             method: 'PUT',
             headers :{
                 'Content-Type':'application/json'
@@ -78,6 +78,9 @@ document.addEventListener('DOMContentLoaded',()=>{
                 <p>${cap["task"]}</p>
             </div>
             <div class="botones">
+                <div class="mas">
+                    <img src="./storage/img/añadir1.svg" id="${cap["id"]}" alt="">
+                    </div>
                 <div class="terminadoNegativo">
                     <img src="./storage/img/pngwing.com (2).png" id="${cap["id"]}" alt="">
                 </div>
@@ -94,6 +97,9 @@ document.addEventListener('DOMContentLoaded',()=>{
                 <p>${cap["task"]}</p>
             </div>
             <div class="botones">
+                <div class="mas">
+                    <img src="./storage/img/añadir1.svg" id="${cap["id"]}" alt="">
+                    </div>
                 <div class="terminado">
                     <img src="./storage/img/pngwing.com (2).png" id="${cap["id"]}" alt="">
                 </div>

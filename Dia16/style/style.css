@@ -128,3 +128,16 @@ button{
     font-size: 30px;
     text-decoration: line-through;
 }
+.mas{
+    width: 50px;
+    color: black;
+    background-color: white;
+    border-radius: 100%;
+    margin-left: 20px;
+}
+.mas img{
+    width: 50px;
+    
+    justify-content: center;
+    
+}
