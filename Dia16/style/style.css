@@ -145,9 +145,12 @@ button{
 }
 .caja1{
     display: flex;
+    gap: 1em;
     
 }
 .capsulaNegativa, .capsula {
+    
     display: flex;
     flex-direction: column; 
+    gap: 1em;
 }

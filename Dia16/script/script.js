@@ -99,6 +99,15 @@ document.addEventListener('DOMContentLoaded',()=>{
         )
         
     }
+    async function deleteSubtask(taskid, subtaskid) {
+    await fetch(`https://689a16bffed141b96ba1d24e.mockapi.io/api/tareas/Tareas/${taskid}/subtask/${subtaskid}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' }
+    });
+
+    const data = await fetchData();
+    displayCapsula(data);
+    }
 
    
     function displayCapsula(capsula){
@@ -148,6 +157,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             </div>
             
             <div class="subtarea"></div>
+
             
             `
             
@@ -159,6 +169,9 @@ document.addEventListener('DOMContentLoaded',()=>{
                 if(sub.status==="ready"){
                 capDiv2.classList.add('capsulaNegativa');
                 capDiv2.innerHTML +=`
+            <h3 style="display: flex; justify-content: center; background-color: white; color:black;">
+            subtareas
+            </h3>
             <div class="caja1">
                 <div class="infoTextNegativo">
                 <p>${sub["task"]}</p>
@@ -177,6 +190,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             }else if(sub.status==="On hold"){
                 capDiv2.classList.add('capsula');
                 capDiv2.innerHTML=`
+            
             <div class="caja1">
                 <div class="infoText">
                     <p>${sub["task"]}</p>
@@ -193,7 +207,9 @@ document.addEventListener('DOMContentLoaded',()=>{
             </div>    
                 `
             }
-                subtareaDiv.appendChild(capDiv2);
+            subtareaDiv.appendChild(capDiv2);
+            const botoneliminar2 = capDiv2.querySelector('.eliminado, .eliminadoNegativo');
+            botoneliminar2.addEventListener('click',() => deleteSubtask(cap.id, sub.id));
             });
             }
             datosContenedor.appendChild(capDiv);
@@ -209,6 +225,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         displayCapsula(data);
     
     });
+    
 
     addTaskButton.addEventListener('click', addNewTask);
     
