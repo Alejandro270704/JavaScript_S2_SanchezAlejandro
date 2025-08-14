@@ -99,12 +99,10 @@ document.addEventListener('DOMContentLoaded',()=>{
         )
         
     }
-    async function deleteSubtask(taskid, subtaskid) {
-    await fetch(`https://689a16bffed141b96ba1d24e.mockapi.io/api/tareas/Tareas/${taskid}/subtask/${subtaskid}`, {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' }
-    });
-
+    async function deleteSubtask(subtaskid) {
+    
+    subtaskid.pop()
+    nuevaSubtarea.push(subtareadelete)
     const data = await fetchData();
     displayCapsula(data);
     }
@@ -209,7 +207,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             }
             subtareaDiv.appendChild(capDiv2);
             const botoneliminar2 = capDiv2.querySelector('.eliminado, .eliminadoNegativo');
-            botoneliminar2.addEventListener('click',() => deleteSubtask(cap.id, sub.id));
+            botoneliminar2.addEventListener('click',() => deleteSubtask( sub.id));
             });
             }
             datosContenedor.appendChild(capDiv);
